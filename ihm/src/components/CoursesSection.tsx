@@ -1,58 +1,55 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, GraduationCap, Globe, CheckCircle2, Clock, Users, Award, BookOpen, Star } from "lucide-react";
 
 const programs = [
   {
-    id: "pgdm",
-    badge: "AICTE APPROVED · 1-4255511",
-    flag: "🏆 Flagship Program",
+    id: "bsc",
     icon: GraduationCap,
-    label: "PGDM",
-    fullName: "Post Graduate Diploma in Management",
+    label: "B.Sc",
+    fullName: "B.Sc. in Hospitality Studies",
+    desc: "The B.Sc. in Hospitality Studies (YCMOU Affiliated) is a 3-year degree program with dual internship opportunities, designed for students seeking immersive, hands-on training through a strong “learning by doing” approach, with practical sessions at the end of every module. Lexicon MILE (Study Center No. 62582) is an authorized YCMOU study center offering the B.Sc. Hospitality Studies (UGP02) program, structured as per NEP guidelines with a balanced focus on theoretical knowledge, practical skills, and service aptitude. The degree is recognized by the Association of Indian Universities (AIU) and is at par with degrees, diplomas, and certificates of all Indian universities and institutions, as per UGC guidelines, ensuring strong academic and industry credibility.",
     duration: "2 Years Full-Time",
     type: "Domestic",
     accent: "#002244",
     accentLight: "#004E7E",
     bgGradient: "linear-gradient(135deg, #001830 0%, #002F4D 60%, #003D66 100%)",
     highlights: [
-      { icon: Clock, text: "2 Years Full-Time" },
-      { icon: Users, text: "Small Batch Sizes" },
-      { icon: Award, text: "Top Ranked Institute" },
+      { icon: Clock, text: "3 Years Full-Time" }
     ],
-    specialisations: [
-      "PGDM – Marketing and Finance",
-      "PGDM – Research & Business Analytics",
-      "PGDM – Finance, Marketing & HRM*",
+    features: [
+      "Emphasis on live project-based learning.",
+      "Flexibility for career switchers – ideal for both fresh graduates and those entering hospitality mid-career.",
+      "International internship pathways enabling students to explore global markets.*",
+      "Industry-aligned Hospitality Professional Skills certifications enhancing employability, career growth, and entrepreneurship.",
     ],
-    eligibility: "Any Bachelor's Degree (min. 3 yrs) with 50% marks (45% for reserved category)",
-    tag: "Most Popular",
-    modalEvent: "openPgdmModal",
+    eligibility: "Candidate should be 12th Pass from ICSE, CBSE, IGCSE (ICE) or any other recognised board by the competent authority. An equivalence certificate is required from the respective board in case the result is in grade/credit points.",
+    modalEvent: "openBscModal",
     enquireEvent: "openEnquireModal",
-    note: "*Course name change in process.",
+    note: "",
   },
   {
     id: "mba",
-    badge: "INTERNATIONAL DUAL DEGREE",
-    flag: "🌍 Global Program",
-    icon: Globe,
-    label: "MBA Global",
-    fullName: "MBA – University of South Wales, UK",
+    icon: GraduationCap,
+    label: "Diploma",
+    fullName: "Diploma in Hospitality Studies",
+    desc: "The Diploma in Hospitality Studies (YCMOU Affiliated) is a 1-year intensive program that equips students with the essential skills to step into the world of hospitality. Designed for those seeking a quick entry into the workforce, it provides focused training across hotel operations. <br/> Lexicon MILE (Study Center No. 62582) is an authorized YCMOU study center offering the 1-year Diploma in Hospitality Studies (V121) program, structured as per NEP guidelines combining theoretical knowledge, practical skills, and service aptitude. The program is recognized by the Association of Indian Universities (AIU) and is equivalent to degrees, diplomas, and certificates of all Indian universities and institutions, as per UGC guidelines.",
     duration: "International Program",
     type: "International",
     accent: "#002244",
     accentLight: "#004E7E",
     bgGradient: "linear-gradient(135deg, #0A1F3A 0%, #0D2E50 60%, #0F3A66 100%)",
     highlights: [
-      { icon: Globe, text: "UK Recognized Degree" },
-      { icon: BookOpen, text: "180 Credits Total" },
-      { icon: Star, text: "Dual Degree" },
+      { icon: Clock, text: "1 Year Full-Time" }
     ],
-    specialisations: [
-      "80 credits at Lexicon MILE, Pune",
-      "100 credits at University of South Wales, UK",
+    features: [
+      "Fast-track, industry-relevant programs",
+      "Earn-While-You-Learn with embedded internships",
+      "Apprenticeship opportunities with leading hotel brands",
+      "Affordable fees with strong placement & internship support",
+      "5 months of on-campus training + 6 months of internship to make students industry-ready hospitality professionals from day one"
     ],
-    eligibility: "Graduation with minimum 55% from a recognized university",
-    tag: "Intl. Dual Degree",
+    eligibility: " Candidate should be 12th Pass from ICSE, CBSE, IGCSE (ICE) & any other recognised board by the competent authority. An equivalence certificate is required from the respective board in case the result is in grade/credit points.",
     modalEvent: "openMbaModal",
     enquireEvent: "openEnquireModal",
     note: null,
@@ -60,6 +57,11 @@ const programs = [
 ];
 
 const CoursesSection = () => {
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const toggleExpanded = (id: string) => setExpanded((s) => ({ ...s, [id]: !s[id] }));
+  const isExpanded = (id: string) => !!expanded[id];
+  const TRUNCATE_LEN = 300;
+
   return (
     <section id="programs" className="py-24 bg-[#F9F2E2] relative overflow-hidden">
       {/* Subtle background shapes */}
@@ -79,18 +81,18 @@ const CoursesSection = () => {
           <span className="inline-block text-[#004E7E] text-sm font-semibold tracking-widest uppercase mb-4 border border-[#004E7E]/30 rounded-full px-4 py-1 bg-[#004E7E]/5">
             Our Programs
           </span>
-          <h2 className="font-display text-[48px] leading-tight font-black text-[#002244] uppercase tracking-wide">
+          <h2 className="font-display text-[40px] leading-tight font-black text-[#002244] uppercase tracking-wide">
             Admission <span className="text-[#004E7E]">Information</span>
           </h2>
-          <p className="text-[#4A5568] text-base mt-4 max-w-2xl mx-auto leading-relaxed">
-            Choose your path to leadership. Two world-class programs designed for the next generation of business leaders.
-          </p>
         </motion.div>
 
         {/* Program Cards */}
         <div className="grid lg:grid-cols-2 gap-8">
           {programs.map((prog, i) => {
             const Icon = prog.icon;
+            const plainDesc = prog.desc.replace(/<[^>]+>/g, "");
+            const isLong = plainDesc.length > TRUNCATE_LEN;
+            const shortDesc = isLong ? plainDesc.slice(0, TRUNCATE_LEN) : plainDesc;
             return (
               <motion.div
                 key={prog.id}
@@ -111,29 +113,35 @@ const CoursesSection = () => {
                     >
                       <Icon className="w-7 h-7" style={{ color: prog.accentLight }} />
                     </div>
-                    {/* Badges */}
-                    <div className="flex flex-col items-end gap-2">
-                      <span
-                        className="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full border"
-                        style={{ color: prog.accentLight, borderColor: prog.accentLight + "44" }}
-                      >
-                        {prog.badge}
-                      </span>
-                      <span className="text-[#4A5568] text-xs">{prog.flag}</span>
-                    </div>
                   </div>
 
                   {/* Title */}
                   <div className="flex items-end gap-3 mb-1">
-                    <h3 className="text-5xl font-black text-[#002244] font-display tracking-tight">{prog.label}</h3>
-                    <span
-                      className="mb-2 text-[10px] font-bold px-2 py-0.5 rounded-full"
-                      style={{ backgroundColor: prog.accentLight + "33", color: prog.accentLight }}
-                    >
-                      {prog.tag}
-                    </span>
+                    <h3 className="text-4xl md:text-5xl font-black text-[#002244] font-display tracking-tight">{prog.label}</h3>
+
                   </div>
                   <p className="text-[#4A5568] text-sm">{prog.fullName}</p>
+                  <div className="text-[#4A5568] text-sm leading-relaxed mt-4">
+                    {!isExpanded(prog.id) ? (
+                      <>
+                        <span>{shortDesc}</span>
+                        {isLong && (
+                          <button onClick={() => toggleExpanded(prog.id)} className="ml-2 text-[#004E7E] font-bold">
+                            Read more
+                          </button>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        <div dangerouslySetInnerHTML={{ __html: prog.desc }} />
+                        {isLong && (
+                          <button onClick={() => toggleExpanded(prog.id)} className="ml-2 text-[#004E7E] font-bold">
+                            Read less
+                          </button>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
 
                 {/* Highlights Row */}
@@ -149,29 +157,6 @@ const CoursesSection = () => {
                   })}
                 </div>
 
-                {/* Specialisations */}
-                <div className="px-8 py-6 border-b border-[#002244]/10 flex-grow">
-                  <p
-                    className="text-[10px] uppercase font-bold tracking-widest mb-4"
-                    style={{ color: prog.accentLight }}
-                  >
-                    Specialisations
-                  </p>
-                  <ul className="space-y-3">
-                    {prog.specialisations.map((item, k) => (
-                      <li key={k} className="flex items-start gap-3">
-                        <CheckCircle2
-                          className="w-4 h-4 mt-0.5 shrink-0"
-                          style={{ color: prog.accentLight }}
-                        />
-                        <span className="text-[#002244] text-sm leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  {prog.note && (
-                    <p className="text-[#4A5568]/60 text-[10px] mt-4 italic">{prog.note}</p>
-                  )}
-                </div>
 
                 {/* Eligibility */}
                 <div className="px-8 py-5 border-b border-[#002244]/10">
@@ -193,12 +178,6 @@ const CoursesSection = () => {
                   >
                     RESERVE YOUR SEAT <ArrowRight className="w-4 h-4" />
                   </button>
-                  <button
-                    onClick={() => window.dispatchEvent(new CustomEvent(prog.modalEvent))}
-                    className="w-full py-3 text-[#4A5568] text-xs font-bold tracking-widest hover:text-[#002244] transition-colors uppercase"
-                  >
-                    Download Detailed Prospectus
-                  </button>
                 </div>
               </motion.div>
             );
@@ -206,7 +185,7 @@ const CoursesSection = () => {
         </div>
 
         {/* Bottom Trust Strip */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -224,7 +203,7 @@ const CoursesSection = () => {
               <p className="text-[#4A5568] text-xs">{item.label}</p>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -1,70 +1,74 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { BrainCircuit, Cpu, TrendingUp, Presentation, Briefcase, GraduationCap, FileBadge, CalendarHeart, Users, ShieldAlert, Target } from "lucide-react";
 
 const reasons = [
     {
-        title: "India's Most Structured AI-Integrated PGDM Journey",
-        description: "AI integrated across 6 trimesters through a structured build-and-deploy learning model.",
+        title: "Dual Internship Opportunity (Domestic/International) with two structured industry internships for enhanced real-world exposure.",
         icon: BrainCircuit,
     },
     {
-        title: "Hyper Build - The AI Lab + Core PGDM Classes",
-        description: "Daily 5-hour applied AI immersion integrated with core management learning for business-focused execution.",
+        title: "State-of-the-art infrastructure with industry-grade equipment for real-world learning",
         icon: Cpu,
     },
     {
-        title: "Outstanding Placement Outcomes",
-        description: "Strong returning recruiter network and multiple placement opportunities.",
+        title: "Educational field trips to wineries, dairy farms, hotels, distilleries, and more to promote experiential, stimulus-based learning",
         icon: TrendingUp,
     },
     {
-        title: "Corporate Co-Learning Model",
-        description: "Graduated with 2 years of full-time PGDM + 2 years of real corporate work experience.",
+        title: "Focused mentorship through an optimal 20:1 student–teacher ratio, ensuring individual attention",
         icon: Presentation,
     },
     {
-        title: "Strong Internship & Live Project Exposure",
-        description: "Continuous industry immersion through internships and live business assignments.",
+        title: "A dedicated mentor for every student to track progress and keep parents informed",
         icon: Briefcase,
     },
     {
-        title: "Degree + Business Launch",
-        description: "Build and launch your own venture while earning your PGDM.",
+        title: "Industry-focused certifications in Digital Marketing, Conflict Resolution, Plant-Based Vegan Cuisine, and more",
         icon: GraduationCap,
     },
     {
-        title: "Employment-Enhancing Certifications",
-        description: "Data Analytics | AI & Digital Marketing | Financial Modelling | Power BI | Python/R | Six Sigma | Talent Acquisition | Business Communication.",
+        title: "Language enhancement through Spoken English and Spoken French certifications",
         icon: FileBadge,
     },
     {
-        title: "Corporate Saturdays - Second to None",
-        description: "Leadership Conclaves | Panel Discussions | Corporate Talk Series | Domain Mastery Workshops.",
+        title: "Wi-Fi-enabled campus for seamless digital access",
         icon: CalendarHeart,
     },
     {
-        title: "Placement Mentorship & Career Readiness Support",
-        description: "CV building | LinkedIn optimisation | Mock interviews | AI-driven interview preparation.",
+        title: "Soundproof amphitheatre with an attached kitchen studio designed for professional demonstrations",
         icon: Users,
     },
     {
-        title: "FailLab & Social Immersion",
-        description: "A safe-to-fail business simulation model that builds resilience and responsible leadership.",
+        title: "Library and reading room access from 9:00 am to 9:00 pm on all working days for extended study hours",
         icon: ShieldAlert,
     },
     {
-        title: "Placement Mentorship",
-        description: "From crafting standout portfolios and optimizing LinkedIn profiles to mastering AI-driven interview preparation and soft skills development.",
+        title: "Indoor games room, football turf, and basketball court for a balanced campus life",
         icon: Target,
     },
     {
-        title: "200+ Industry Recruiters",
-        description: "Robust network of industry leaders opening doors for paid internships and full-time employment at top organizations.",
+        title: "Lunch is available on a subscription basis",
+        icon: Users,
+    },
+    {
+        title: "Verified third-party hostel facility available at an additional charge",
+        icon: Users,
+    },
+    {
+        title: "Comprehensive Accidental Insurance Coverage for all students, supported by Doctor-on-Call and Ambulance-on-Call facilities for immediate medical and emergency response.",
+        icon: Users,
+    },
+    {
+        title: "Extended Practical Lab Hours embedded in the timetable for continuous hands-on learning.",
         icon: Users,
     },
 ];
 
 const WhyChooseSection = () => {
+    const [expanded, setExpanded] = useState(false);
+    const visibleReasons = expanded ? reasons : reasons.slice(0, 8);
+
     return (
         <section className="py-24 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -74,13 +78,13 @@ const WhyChooseSection = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="font-display text-[48px] leading-tight font-black text-[#002244] uppercase tracking-wide">
-                        Why Choose <span className="text-[#004E7E]">Lexicon MILE</span>
+                    <h2 className="font-display text-[40px] leading-tight font-black text-[#002244] uppercase tracking-wide">
+                        Why Choose <span className="text-[#004E7E]">Lexicon ?</span>
                     </h2>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-                    {reasons.map((reason, index) => (
+                <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {visibleReasons.map((reason, index) => (
                         <motion.div
                             key={reason.title}
                             initial={{ opacity: 0, y: 30 }}
@@ -96,6 +100,17 @@ const WhyChooseSection = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                {reasons.length > 8 && (
+                    <div className="text-center mt-8">
+                        <button
+                            className="px-6 py-2 bg-[#004E7E] text-white rounded-full hover:bg-[#003358] transition"
+                            onClick={() => setExpanded((e) => !e)}
+                        >
+                            {expanded ? "Hide" : "Show More"}
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );

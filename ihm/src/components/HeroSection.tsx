@@ -67,18 +67,22 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
         <div className="flex items-center gap-3 md:pl-4 lg:pl-8 xl:pl-10">
-          <a href="/" className="inline-block py-1">
+          <a href="/" className="flex py-1">
             <img
-              src="https://lexiconmile.com/wp-content/uploads/2020/03/black_Logo.svg"
+              src="./logo/logo_01.png"
               alt="Lexicon MILE Logo"
-              style={{ width: 'auto', height: '50px', maxWidth: '180px' }}
-              className="object-contain transition-all"
+              className="object-contain transition-all max-w-[130px] lg:max-w-[120px] xl:max-w-[180px]"
+            />
+            <img
+              src="./logo/logo_02.png"
+              alt="Lexicon MILE Logo"
+              className="object-contain transition-all max-w-[130px] lg:max-w-[120px] xl:max-w-[180px]"
             />
           </a>
         </div>
 
         {/* Desktop Contact Area */}
-        <div className="hidden md:flex items-center justify-between flex-1 ml-12 lg:ml-24 max-w-3xl">
+        <div className="hidden md:flex items-center justify-between flex-1 ml-12 lg:ml-4 max-w-3xl">
           <div className="flex items-center gap-3">
             <a 
               className={`px-1 transition-colors ${activeSection === 'about' ? 'text-[#004E7E] font-semibold' : 'text-black hover:text-[#004E7E]'}`} 
@@ -208,7 +212,7 @@ const HeroSection = () => (
   <section className="relative min-h-screen bg-hero overflow-hidden flex items-center mt-20 md:mt-0">
     {/* Background image overlay */}
     <div className="absolute inset-0">
-      <img src="https://lexiconmile.com/wp-content/uploads/2025/11/5-Outside-View.jpg" alt="Lexicon MILE Campus" className="w-full h-full object-cover" />
+      <img src="./hero/banner.jpg" alt="Lexicon MILE Campus" className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-black/80" />
     </div>
 
@@ -224,18 +228,29 @@ const HeroSection = () => (
       >
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
           <span className="w-2 h-2 rounded-full bg-[#004E7E] animate-pulse" />
-          <span className="text-sm text-primary-foreground/80 font-medium">Admissions Open 2026-28 Batch</span>
+          <span className="text-sm text-primary-foreground/80 font-medium">Admissions Open 2026</span>
         </div>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary-foreground leading-tight mb-6">
-          India's First PGDM Where <br />
-          <span className="text-[#00A3E0]">AI Is Practiced Daily</span><br />
-          Not Taught Occasionally
+          Build a Career in <br />
+          <span className="text-[#00A3E0]">World-Class</span><br />
+          Hospitality & Hotel Management
         </h1>
 
-        <p className="text-lg text-primary-foreground/60 max-w-lg mb-10 font-body leading-relaxed">
-          Transforming business education since 2009. AICTE-approved PGDM & MBA Global programs with 97.5% placement record and 200+ recruiting partners.
+        <p className="text-lg text-primary-foreground/60 max-w-lg mb-4 font-body leading-relaxed">
+         Lexicon Institute of Hotel Management is Recognized as one of the top hotel management colleges in Maharashtra.
         </p>
+        
+        <div className="flex flex-wrap items-center gap-4 sm:gap-8 my-8 ">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <GraduationCap className="w-5 h-5 text-[#004E7E]" />
+            <span className="text-white/80 font-medium text-sm sm:text-base">B.Sc Hospitality Studies</span>
+          </div>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <GraduationCap className="w-5 h-5 text-[#004E7E]" />
+            <span className="text-white/80 font-medium text-sm sm:text-base">Diploma in Hospitality Studies</span>
+          </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
           <button
@@ -256,16 +271,6 @@ const HeroSection = () => (
           </button>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 sm:gap-8 mt-8 sm:mt-12">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <GraduationCap className="w-5 h-5 text-[#004E7E]" />
-            <span className="text-white/80 font-medium text-sm sm:text-base">9/12 Certifications</span>
-          </div>
-          <div className="flex items-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-3 rounded-2xl border border-white/10">
-            <Globe className="w-5 h-5 text-[#004E7E]" />
-            <span className="text-xs sm:text-sm text-primary-foreground/60">UK Partnership</span>
-          </div>
-        </div>
       </motion.div>
 
       {/* Admission Form Card */}

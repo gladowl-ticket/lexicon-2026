@@ -54,7 +54,7 @@ const AdvantagesSection = () => (
         className="text-center mb-16"
       >
         <span className="text-[#004E7E] text-sm font-semibold tracking-widest uppercase font-body">Why Lexicon MILE</span>
-        <h2 className="font-display text-[48px] leading-tight font-black text-[#002244] uppercase tracking-wide mt-3">
+        <h2 className="font-display text-[40px] leading-tight font-black text-[#002244] uppercase tracking-wide mt-3">
           The Lexicon MILE <span className="text-[#004E7E]">Advantage</span>
         </h2>
       </motion.div>

@@ -45,7 +45,7 @@ const RankingsSection = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="font-display text-[48px] leading-tight font-black text-[#002244] uppercase tracking-wide">
+                    <h2 className="font-display text-[40px] leading-tight font-black text-[#002244] uppercase tracking-wide">
                         Ranking & <span className="text-[#004E7E]">Recognitions</span>
                     </h2>
                 </motion.div>

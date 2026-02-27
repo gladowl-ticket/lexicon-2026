@@ -23,7 +23,7 @@ const CertificationsSection = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="font-display text-[48px] font-black text-[#002244] uppercase tracking-wide">
+                    <h2 className="font-display text-[40px] font-black text-[#002244] uppercase tracking-wide">
                         Employment Enhancing <span className="text-[#004E7E]">Certifications</span>
                     </h2>
                 </motion.div>

@@ -2,93 +2,50 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
-type TestimonialCategory = "student" | "corporate" | "parent";
+type TestimonialCategory = "student" | "corporate" ;
 
 const testimonials = {
     student: [
         {
-            name: "Devyani Pardhi",
-            role: "",
-            company: "",
-            videoId: "q3W_rZ1VyWQ",
-            text: "Lexicon MILE transformed my perspective on management. The faculty are industry veterans who bring real-world insights into every session.",
+            videos: ["LmQpqnBeW94", "ekNSKaxwziY"],
         },
         {
-            name: "Ajinkya",
-            role: "",
-            company: "",
-            videoId: "RPuMuJjynlc",
-            text: "The international exposure through the USW partnership was invaluable. I got to experience global business education firsthand.",
+            videos: ["I_gHvPVLdtQ", "6dSSi83oHcw"],
         },
         {
-            name: "Palak Keshari",
-            role: "",
-            company: "",
-            videoId: "VwIQh-wiviY",
-            text: "The placement mentorship program was exceptional. Right from building your resume to mock interviews, every step was supported professionally.",
+            videos: ["5yAnjRnq2rs", "eIn6IYb47VA"],
         },
         {
-            name: "Akash Bisht",
-            role: "",
-            company: "",
-            videoId: "v1wEMuHYywc",
-            text: "The practical exposure and case-study based learning at Lexicon MILE prepared me perfectly for the corporate world.",
+            videos: ["gMbHlrXkRls", "YIG0FY24kvs"],
         },
         {
-            name: "Khwaish Taneja",
-            role: "",
-            company: "",
-            videoId: "im-Y6inWMAI",
-            text: "The focus on data analytics and modern tools gave me a significant edge during my internship interviews.",
+            videos: ["HZ-wDjmy2Q8", "cmu05iFFgM8"],
         },
         {
-            name: "Shreya Sharma",
-            role: "",
-            company: "",
-            videoId: "9FAjG9AcrCs",
-            text: "Developing a global mindset while studying in Pune and the UK was life-changing. I highly recommend the Global MBA program.",
-        },
-        {
-            name: "Trupti Gupta",
-            role: "",
-            company: "",
-            videoId: "QQq19Eb0Oys",
-            text: "The leadership workshops and executive presence training at Lexicon MILE are truly world-class.",
-        },
-        {
-            name: "Shipra Chauhan",
-            role: "",
-            company: "",
-            videoId: "2TV239uzwxo",
-            text: "The finance curriculum is incredibly rigorous and aligned with what top-tier banks are looking for today.",
-        },
+            videos: ["i3-Nh2yTapw", "LmQpqnBeW94"],
+        }
     ],
     corporate: [
         {
-            videos: ["P8neB9ppnUM", "JztQ6M0z_vY"],
+            videos: ["KYAeOcdvlkA", "YFNwslRtMUc"],
         },
         {
-            videos: ["I7vx-IppHcM", "yRPbETS_O9E"],
+            videos: ["QynDExkNii4", "svVqV73N9RA"],
         },
         {
-            videos: ["chK2vVObfSI", "hCX4CjaW4GI"],
+            videos: ["HqMYPVIXiAU", "67-kKu43Eus"],
         },
         {
-            videos: ["7PdAGAFIL4g", "n21vWvnNGto"],
+            videos: ["ymDVAwOaV6Q", "Vr1l4Yz-0yQ"],
         },
         {
-            videos: ["J85cXxk0mU0", "HiwZdJO5k7A"],
+            videos: ["jGbOs3Izaf4", "y-9MiIGUTyI"],
         },
         {
-            videos: ["vX73OtEkn8c", "PS5liNO9vI0"],
-        }
-    ],
-    parent: [
-        {
-            videos: ["Vj67vB0hhaA", "yo3T8-YmjMY"],
+            videos: ["Wi61D0NtoyY", "5HHOa2DJ-Gc"],
         },
         {
-            videos: ["WnnjLyq9lCg"],
+            videos: ["axuVUq_ExYc", "ydnHvs8TEJg"],
         }
     ],
 };
@@ -96,7 +53,6 @@ const testimonials = {
 const tabs: { key: TestimonialCategory; label: string }[] = [
     { key: "student", label: "Student Testimonials" },
     { key: "corporate", label: "Corporate Testimonials" },
-    { key: "parent", label: "Parent Testimonials" },
 ];
 
 const TestimonialsSection = () => {
@@ -123,7 +79,7 @@ const TestimonialsSection = () => {
                     className="text-center mb-12"
                 >
                     <span className="text-[#004E7E] text-sm font-semibold tracking-widest uppercase font-body">Voices of Success</span>
-                    <h2 className="font-display text-[48px] leading-tight font-black text-[#002244] uppercase tracking-wide mt-3">
+                    <h2 className="font-display text-[40px] leading-tight font-black text-[#002244] uppercase tracking-wide mt-3">
                         What They <span className="text-[#004E7E]">Say</span>
                     </h2>
                 </motion.div>
@@ -152,58 +108,19 @@ const TestimonialsSection = () => {
                     transition={{ duration: 0.4 }}
                     className="bg-card rounded-2xl border border-border shadow-elevated overflow-hidden"
                 >
-                    <div className={activeTab === 'corporate' || activeTab === 'parent' ? 'grid lg:grid-cols-2 gap-4' : 'grid lg:grid-cols-2'}>
-                        {activeTab === 'corporate' || activeTab === 'parent' ? (
-                            // Render two videos for corporate/parent tab
-                            (list[activeIdx] as any).videos?.map((vidId: string, idx: number) => (
-                                <div key={idx} className="aspect-video bg-navy-dark relative w-full rounded-xl lg:rounded-none overflow-hidden">
-                                    <iframe
-                                        className="w-full h-full min-h-[250px] md:min-h-[280px]"
-                                        src={`https://www.youtube.com/embed/${vidId}?rel=0`}
-                                        title={`${activeTab} testimonial video ${idx + 1}`}
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    />
-                                </div>
-                            ))
-                        ) : (
-                            // Render standard video + text card for other tabs
-                            <>
-                                {/* Video */}
-                                <div className="aspect-video lg:aspect-auto bg-navy-dark relative">
-                                    <iframe
-                                        className="w-full h-full min-h-[280px]"
-                                        src={`https://www.youtube.com/embed/${(list[activeIdx] as any).videoId}?rel=0`}
-                                        title={`${(list[activeIdx] as any).name} testimonial`}
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    />
-                                </div>
-
-                                {/* Text */}
-                                <div className="p-8 lg:p-10 flex flex-col justify-between">
-                                    <div>
-                                        <Quote className="w-8 h-8 text-[#004E7E]/30 mb-4" />
-                                        <p className="text-foreground/80 text-lg leading-relaxed font-body italic mb-6">
-                                            "{(list[activeIdx] as any).text}"
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p className="font-display font-bold text-foreground text-xl">{(list[activeIdx] as any).name}</p>
-                                        {(list[activeIdx] as any).role && (
-                                            <p className="text-muted-foreground text-sm font-body">{(list[activeIdx] as any).role}</p>
-                                        )}
-                                        {(list[activeIdx] as any).company && (
-                                            <span className="inline-block mt-2 px-3 py-1 bg-[#004E7E]/10 text-[#004E7E] text-xs rounded-full font-semibold">
-                                                {(list[activeIdx] as any).company}
-                                            </span>
-                                        )}
-                                    </div>
-                                </div>
-                            </>
-                        )}
+                    <div className="grid lg:grid-cols-2 gap-4">
+                        {(list[activeIdx] as any).videos?.map((vidId: string, idx: number) => (
+                            <div key={idx} className="aspect-video bg-navy-dark relative w-full rounded-xl lg:rounded-none overflow-hidden">
+                                <iframe
+                                    className="w-full h-full min-h-[250px] md:min-h-[280px]"
+                                    src={`https://www.youtube.com/embed/${vidId}?rel=0`}
+                                    title={`${activeTab} testimonial video ${idx + 1}`}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        ))}
                     </div>
                 </motion.div>
 

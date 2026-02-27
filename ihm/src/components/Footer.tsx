@@ -5,22 +5,27 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-6">
         <div className="mb-6">
           <div className="flex justify-center items-center gap-3 mb-4">
-            <a href="/" className="inline-block bg-white/90 p-2 rounded-lg">
+            <a href="/" className="inline-block bg-white/90 p-2 rounded-lg flex">
               <img
-                src="https://lexiconmile.com/wp-content/uploads/2020/03/black_Logo.svg"
+                src="./logo/logo_01.png"
                 alt="Lexicon MILE Logo"
-                className="h-10 w-auto object-contain"
+                className="h-14 md:h-16 w-auto object-contain"
+              />
+              <img
+                src="./logo/logo_02.png"
+                alt="Lexicon MILE Logo"
+                className="h-14 md:h-16 w-auto object-contain"
               />
             </a>
           </div>
           <p className="text-center text-primary-foreground/50 text-sm leading-relaxed font-body">
-            Management Institute of Leadership & Excellence, Pune. Transforming business education since 2009.
+            Lexicon MILE Department of Hotel Management & Catering Technology (Formerly Known as Lexicon Institute of Hotel Management)
           </p>
         </div>
 
       <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex flex-col items-center md:items-start gap-2">
-          <p className="text-primary-foreground/40 text-sm font-body font-medium italic">
+          <p className="text-primary-foreground/40 text-sm font-body text-center font-medium italic">
             An initiative of Sukhdev and Kamal Sharma Educational Trust
           </p>
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">

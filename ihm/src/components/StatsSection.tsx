@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { TrendingUp, Building2, Award, Users } from "lucide-react";
+import { TrendingUp, Building2, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
 
 const useCountUp = (end: number, duration: number = 2000) => {
   const [count, setCount] = useState(0);
@@ -99,8 +99,24 @@ const StatCard = ({ stat, index }: { stat: typeof stats[0]; index: number }) => 
 };
 
 const StatsSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const totalImages = 8;
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const prevImg = () => setCurrent((c) => (c - 1 + totalImages) % totalImages);
+  const nextImg = () => setCurrent((c) => (c + 1) % totalImages);
+
   return (
-    <section id="placements" className="py-20 bg-[#FFE200] relative overflow-hidden">
+    <section id="placements" className="py-20 bg-[#fff7b8] relative overflow-hidden">
       {/* Decorative circles matching reference */}
       <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#FFD000] opacity-50 -mr-20 -mt-20 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#FFD000] opacity-40 -ml-16 -mb-16 pointer-events-none" />
@@ -115,26 +131,60 @@ const StatsSection = () => {
         >
           {/* Pill badge */}
           <span className="inline-block text-[#002244] text-xs font-bold tracking-widest uppercase mb-5 border border-[#002244]/30 rounded-full px-5 py-1.5">
-            Placement Highlights
+            We are soaring high among Top Hotel Management institutes in Pune!
           </span>
+           <h2 className="font-display text-[40px] leading-tight font-black text-[#002244] uppercase tracking-wide mb-8">
+                        Our  <span className="text-[#004E7E]">Placements</span>
+                    </h2>
 
-          <h2 className="font-display text-[52px] leading-tight font-black uppercase tracking-wide">
-            <span className="text-[#002244]" >Numbers That </span>
-            <span className="text-[#002244]">Speak</span>
-          </h2>
+            <div className={isMobile ? "relative w-full" : "flex flex-wrap"}>
+              {isMobile ? (
+                <>
+                  <img
+                    src={`./placements/${current + 1}.jpg`}
+                    className="w-full h-auto rounded-md"
+                    alt={`Placement ${current + 1}`}
+                    onTouchStart={(e) => setTouchStart(e.touches[0].clientX)}
+                    onTouchMove={(e) => setTouchEnd(e.touches[0].clientX)}
+                    onTouchEnd={() => {
+                      if (touchStart !== null && touchEnd !== null) {
+                        const diff = touchStart - touchEnd;
+                        if (diff > 50) nextImg();
+                        else if (diff < -50) prevImg();
+                      }
+                      setTouchStart(null);
+                      setTouchEnd(null);
+                    }}
+                  />
+                  <button
+                    onClick={prevImg}
+                    className="absolute left-[38%] -bottom-12 transform p-2 bg-white rounded-full shadow"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={nextImg}
+                    className="absolute right-[38%] -bottom-12 transform p-2 bg-white rounded-full shadow"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </>
+              ) : (
+                Array.from({ length: 8 }, (_, i) => (
+                  <div key={i} className="lg:w-3/12 w-full md:w-6/12 p-2">
+                    <img
+                      src={`./placements/${i + 1}.jpg`}
+                      className="w-full h-auto rounded-md"
+                      alt={`Placement ${i + 1}`}
+                    />
+                  </div>
+                ))
+              )}
+            </div>
 
-          <p className="text-[#002244]/70 text-base mt-4 max-w-xl mx-auto leading-relaxed">
-            With each passing year, Lexicon MILE sets new benchmarks. Our students launch
-            their careers with top recruiters across diverse sectors.
-          </p>
-        </motion.div>
-
-        {/* Stat Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map((stat, i) => (
-            <StatCard key={stat.label} stat={stat} index={i} />
-          ))}
-        </div>
+          </motion.div>
       </div>
     </section>
   );

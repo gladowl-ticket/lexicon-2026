@@ -51,7 +51,7 @@ const AdmissionProcess = () => {
                     <span className="text-[#004E7E] text-sm font-bold tracking-[0.2em] uppercase font-display bg-[#004E7E]/5 px-4 py-1.5 rounded-full">
                         Guided Journey
                     </span>
-                    <h2 className="font-display text-[48px] font-black text-[#002244] mt-3 leading-tight uppercase tracking-wide">
+                    <h2 className="font-display text-[40px] font-black text-[#002244] mt-3 leading-tight uppercase tracking-wide">
                         Admission <span className="text-[#004E7E]">Process</span>
                     </h2>
                 </motion.div>
@@ -79,7 +79,7 @@ const AdmissionProcess = () => {
 
                             <div className="space-y-5">
                                 {[
-                                    { text: "The online application is for admission to programs offered in Lexicon MILE.", icon: CheckCircle2 },
+                                    { text: "The online application is for admission to programs offered in Lexicon IHM.", icon: CheckCircle2 },
                                     { text: "Application Form Fee is Non-Refundable.", icon: CheckCircle2, bold: true },
                                     { text: "Email ID submitted at the time of registration will be used for all correspondences until enrolment is completed. Change in Email ID will NOT be permitted.", icon: CheckCircle2, warning: true },
                                 ].map((item, idx) => (
