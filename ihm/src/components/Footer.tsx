@@ -24,7 +24,7 @@ const Footer = () => (
         </div>
 
       <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex flex-col items-center md:items-start gap-2">
+        <div className="flex flex-col items-center gap-2 w-full">
           <p className="text-primary-foreground/40 text-sm font-body text-center font-medium italic">
             An initiative of Sukhdev and Kamal Sharma Educational Trust
           </p>
@@ -38,6 +38,7 @@ const Footer = () => (
             </p>
           </div>
         </div>
+        
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"

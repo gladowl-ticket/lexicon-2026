@@ -41,7 +41,7 @@ const AdmissionProcess = () => {
             <div className="absolute top-1/4 -left-64 w-[600px] h-[600px] bg-[#004E7E]/5 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute bottom-1/4 -right-64 w-[600px] h-[600px] bg-navy/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 relative z-10 overflow-hidden">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
