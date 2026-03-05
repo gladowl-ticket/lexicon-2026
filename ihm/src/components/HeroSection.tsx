@@ -210,89 +210,37 @@ const Navbar = () => {
 
 const HeroSection = () => (
   <>
-  <section className="relative min-h-screen bg-hero overflow-hidden flex items-center mt-20 md:mt-0">
-    {/* Background image overlay */}
-    <div className="absolute inset-0 hidden md:block pt-12">
-      <img src="./hero/banner.jpg" alt="Lexicon MILE Campus" className="w-full h-full object-cover object-top" />
-      <div className="absolute inset-0 bg-black/50" />
-    </div>
-    <div className="absolute inset-0 md:hidden">
-      <img src="./hero/mobile_banner.jpg" alt="Lexicon MILE Campus" className="w-full h-full object-cover object-top" />
-      <div className="absolute inset-0 bg-black/50" />
-    </div>
+  <section className="relative bg-hero overflow-hidden flex items-center mt-20">
+    <img src="./hero/1.png" className="w-full h-auto object-cover hidden md:block" alt="" />
+    <img src="./hero/2.jpg" className="w-full h-auto object-cover md:hidden" alt="" />
 
-    {/* Decorative elements */}
-    <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-40 sm:w-72 h-40 sm:h-72 rounded-full bg-[#004E7E]/5 blur-3xl" />
-    <div className="absolute bottom-10 -left-10 sm:bottom-20 sm:left-10 w-48 sm:w-96 h-48 sm:h-96 rounded-full bg-[#004E7E]/3 blur-3xl" />
-
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-12 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center w-full">
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#004E7E] animate-pulse" />
-          <span className="text-sm text-primary-foreground/80 font-medium">Admissions Open 2026</span>
-        </div>
-
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary-foreground leading-tight mb-6">
-          Build a Career in <br />
-          <span className="text-[#00A3E0]">World-Class</span><br />
-          Hospitality & Hotel Management
-        </h1>
-
-        <p className="text-lg text-primary-foreground/60 max-w-lg mb-4 font-body leading-relaxed">
-         Lexicon Institute of Hotel Management is Recognized as one of the top hotel management colleges in Maharashtra.
-        </p>
-        
-        <div className="flex flex-wrap items-center gap-4 sm:gap-8 my-8 ">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <GraduationCap className="w-5 h-5 text-[#004E7E]" />
-            <span className="text-white/80 font-medium text-sm sm:text-base">B.Sc Hospitality Studies</span>
+    <div className="w-full absolute top-0 left-0 z-10 h-full items-center hidden md:flex">
+      <div className="w-full md:w-7/12">
+      </div>
+      <div className="w-full md:w-4/12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          id="apply"
+          className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 w-full max-w-[420px] mx-auto lg:ml-auto lg:mx-0 hidden md:block"
+        >
+          {/* Card Header */}
+          <div className="bg-navy px-6 py-5 border-b border-white/10">
+            <h3 className="font-display text-2xl font-bold text-primary-foreground text-center">Admissions Open 2026</h3>
           </div>
-        </div>
 
-        <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#004E7E] text-white font-light uppercase tracking-wider sm:tracking-[0.2em] text-xs sm:text-sm hover:brightness-110 transition-all shadow-md group border border-[#003B64] w-full sm:w-auto"
-          >
-            Start Application
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button
-            onClick={() => {
-              const el = document.getElementById('programs');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#FFD700] text-black font-light uppercase tracking-wider sm:tracking-[0.2em] text-xs sm:text-sm hover:brightness-105 transition-all shadow-lg w-full sm:w-auto"
-          >
-            Explore Programs
-          </button>
-        </div>
-
-      </motion.div>
-
-      {/* Admission Form Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        id="apply"
-        className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 w-full max-w-[420px] mx-auto lg:ml-auto lg:mx-0 hidden md:block"
-      >
-        {/* Card Header */}
-        <div className="bg-navy px-6 py-5 border-b border-white/10">
-          <h3 className="font-display text-2xl font-bold text-primary-foreground text-center">Admissions Open 2026</h3>
-        </div>
-
-        {/* NPF Widget iframe - exact form with login/register tabs */}
-        <div className="bg-white p-4 pb-1 md:p-6 md:pb-1">
-          <HeroFormWidget />
-        </div>
-      </motion.div>
+          {/* NPF Widget iframe - exact form with login/register tabs */}
+          <div className="bg-white p-4 pb-1 md:p-6 md:pb-1">
+            <HeroFormWidget />
+          </div>
+        </motion.div>
+      </div>
+      <div className="w-full md:w-1/12">
+      </div>
     </div>
+
+    
   </section>
   {/* Admission Form For Mobile */}
   <section className="md:hidden px-2 pb-14">
