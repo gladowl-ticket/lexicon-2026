@@ -10,6 +10,7 @@ import FloatingActions from "@/components/FloatingActions";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import InfraStructure from "@/components/InfraStructure";
 import CampusLife from "@/components/CampusLife";
+import WhyChooseHospitality from "@/components/WhyChooseHospitality";
 
 const Index = () => {
   return (
@@ -18,11 +19,12 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <WhyChooseSection />
+      <WhyChooseHospitality />
       <StatsSection />
       <CoursesSection />
       <AdmissionProcess />
       <PartnersSection />
+      <WhyChooseSection />
       <TestimonialsSection />
       <InfraStructure/>
       <CampusLife/>

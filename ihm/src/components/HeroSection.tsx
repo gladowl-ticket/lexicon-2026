@@ -209,11 +209,16 @@ const Navbar = () => {
 };
 
 const HeroSection = () => (
+  <>
   <section className="relative min-h-screen bg-hero overflow-hidden flex items-center mt-20 md:mt-0">
     {/* Background image overlay */}
-    <div className="absolute inset-0">
-      <img src="./hero/banner.jpg" alt="Lexicon MILE Campus" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-black/80" />
+    <div className="absolute inset-0 hidden md:block pt-12">
+      <img src="./hero/banner.jpg" alt="Lexicon MILE Campus" className="w-full h-full object-cover object-top" />
+      <div className="absolute inset-0 bg-black/50" />
+    </div>
+    <div className="absolute inset-0 md:hidden">
+      <img src="./hero/mobile_banner.jpg" alt="Lexicon MILE Campus" className="w-full h-full object-cover object-top" />
+      <div className="absolute inset-0 bg-black/50" />
     </div>
 
     {/* Decorative elements */}
@@ -246,10 +251,6 @@ const HeroSection = () => (
             <GraduationCap className="w-5 h-5 text-[#004E7E]" />
             <span className="text-white/80 font-medium text-sm sm:text-base">B.Sc Hospitality Studies</span>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <GraduationCap className="w-5 h-5 text-[#004E7E]" />
-            <span className="text-white/80 font-medium text-sm sm:text-base">Diploma in Hospitality Studies</span>
-          </div>
         </div>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
@@ -279,7 +280,7 @@ const HeroSection = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
         id="apply"
-        className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 w-full max-w-[420px] mx-auto lg:ml-auto lg:mx-0"
+        className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 w-full max-w-[420px] mx-auto lg:ml-auto lg:mx-0 hidden md:block"
       >
         {/* Card Header */}
         <div className="bg-navy px-6 py-5 border-b border-white/10">
@@ -293,6 +294,28 @@ const HeroSection = () => (
       </motion.div>
     </div>
   </section>
+  {/* Admission Form For Mobile */}
+  <section className="md:hidden px-2 pb-14">
+    {/* Admission Form Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        id="apply"
+        className="mt-8 rounded-2xl overflow-hidden shadow-2xl border border-white/10 w-full max-w-[420px] mx-auto lg:ml-auto lg:mx-0"
+      >
+        {/* Card Header */}
+        <div className="bg-navy px-6 py-5 border-b border-white/10">
+          <h3 className="font-display text-2xl font-bold text-primary-foreground text-center">Admissions Open 2026</h3>
+        </div>
+
+        {/* NPF Widget iframe - exact form with login/register tabs */}
+        <div className="bg-white p-4 pb-1 md:p-6 md:pb-1  h-[520px]">
+          <HeroFormWidget />
+        </div>
+      </motion.div>
+  </section>
+  </>
 );
 
 export { Navbar, HeroSection };

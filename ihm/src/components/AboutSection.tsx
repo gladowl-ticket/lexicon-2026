@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { BookOpen, Lightbulb, Users, Briefcase, Cpu } from "lucide-react";
 
 const AboutSection = () => (
-<section id="about" className="py-12 bg-background">
+<section id="about" className="pb-12 md:pt-12 bg-background">
   <div className="max-w-7xl mx-auto px-6">
     <div className="grid lg:grid-cols-2 gap-4 md:gap-16 items-center">
       <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
