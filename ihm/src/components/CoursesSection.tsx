@@ -6,7 +6,6 @@ const programs = [
   {
     id: "bsc",
     icon: GraduationCap,
-    label: "B.Sc",
     fullName: "B.Sc. in Hospitality Studies",
     desc: "The B.Sc. in Hospitality Studies (YCMOU Affiliated) is a 3-year degree program with dual internship opportunities, designed for students seeking immersive, hands-on training through a strong “learning by doing” approach, with practical sessions at the end of every module. Lexicon MILE (Study Center No. 62582) is an authorized YCMOU study center offering the B.Sc. Hospitality Studies (UGP02) program, structured as per NEP guidelines with a balanced focus on theoretical knowledge, practical skills, and service aptitude. The degree is recognized by the Association of Indian Universities (AIU) and is at par with degrees, diplomas, and certificates of all Indian universities and institutions, as per UGC guidelines, ensuring strong academic and industry credibility.",
     duration: "2 Years Full-Time",
@@ -116,11 +115,7 @@ const CoursesSection = () => {
                   </div>
 
                   {/* Title */}
-                  <div className="flex items-end gap-3 mb-1">
-                    <h3 className="text-4xl md:text-5xl font-black text-[#002244] font-display tracking-tight">{prog.label}</h3>
-
-                  </div>
-                  <p className="text-[#4A5568] text-sm">{prog.fullName}</p>
+                  <p className="text-[#002244] text-2xl font-bold">{prog.fullName}</p>
                   <div className="text-[#4A5568] text-sm leading-relaxed mt-4">
                     {!isExpanded(prog.id) ? (
                       <>

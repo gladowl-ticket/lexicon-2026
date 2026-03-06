@@ -70,7 +70,7 @@ const WhyChooseSection = () => {
     const visibleReasons = expanded ? reasons : reasons.slice(0, 8);
 
     return (
-        <section className="py-12 bg-white relative overflow-hidden">
+        <section className="pb-12 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
