@@ -28,7 +28,7 @@ const steps = [
     },
     {
         title: "Submit Application",
-        description: "Review and finalize your scholarship journey.",
+        description: "Review and finalize your Admission journey.",
         icon: Send,
         side: "right",
     },

@@ -11,6 +11,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import InfraStructure from "@/components/InfraStructure";
 import CampusLife from "@/components/CampusLife";
 import WhyChooseHospitality from "@/components/WhyChooseHospitality";
+import Collaborations from "@/components/Collaborations";
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
       <StatsSection />
       <CoursesSection />
       <AdmissionProcess />
+      <Collaborations />
       <PartnersSection />
       <WhyChooseSection />
       <TestimonialsSection />

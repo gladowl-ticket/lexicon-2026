@@ -23,7 +23,7 @@ const AboutSection = () => (
       <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }} className="">
         <iframe
-          src="https://www.youtube.com/embed/ip2ZPCOjK98?si=hCZoqYZck2zvK7Y0"
+          src="https://www.youtube.com/embed/lwfh25Zt2Ho?si=ikC-h-5dYfCUtxHH"
           title="YouTube video player"
           frameBorder="0"
           className="rounded-lg w-full h-[220px] md:h-[330px]"
