@@ -27,32 +27,32 @@ const programs = [
     enquireEvent: "openEnquireModal",
     note: "",
   },
-  // {
-  //   id: "diploma",
-  //   icon: GraduationCap,
-  //   label: "Diploma",
-  //   fullName: "Diploma in Hospitality Studies",
-  //   desc: "The Diploma in Hospitality Studies (YCMOU Affiliated) is a 1-year intensive program that equips students with the essential skills to step into the world of hospitality. Designed for those seeking a quick entry into the workforce, it provides focused training across hotel operations. <br/> Lexicon MILE (Study Center No. 62582) is an authorized YCMOU study center offering the 1-year Diploma in Hospitality Studies (V121) program, structured as per NEP guidelines combining theoretical knowledge, practical skills, and service aptitude. The program is recognized by the Association of Indian Universities (AIU) and is equivalent to degrees, diplomas, and certificates of all Indian universities and institutions, as per UGC guidelines.",
-  //   duration: "International Program",
-  //   type: "International",
-  //   accent: "#002244",
-  //   accentLight: "#004E7E",
-  //   bgGradient: "linear-gradient(135deg, #0A1F3A 0%, #0D2E50 60%, #0F3A66 100%)",
-  //   highlights: [
-  //     { icon: Clock, text: "1 Year Full-Time" }
-  //   ],
-  //   features: [
-  //     "Fast-track, industry-relevant programs",
-  //     "Earn-While-You-Learn with embedded internships",
-  //     "Apprenticeship opportunities with leading hotel brands",
-  //     "Affordable fees with strong placement & internship support",
-  //     "5 months of on-campus training + 6 months of internship to make students industry-ready hospitality professionals from day one"
-  //   ],
-  //   eligibility: " Candidate should be 12th Pass from ICSE, CBSE, IGCSE (ICE) & any other recognised board by the competent authority. An equivalence certificate is required from the respective board in case the result is in grade/credit points.",
-  //   modalEvent: "openMbaModal",
-  //   enquireEvent: "openEnquireModal",
-  //   note: null,
-  // },
+  {
+    id: "diploma",
+    icon: GraduationCap,
+    label: "Diploma",
+    fullName: "Diploma in Hospitality Studies",
+    desc: "The Diploma in Hospitality Studies (YCMOU Affiliated) is a 1-year intensive program that equips students with the essential skills to step into the world of hospitality. Designed for those seeking a quick entry into the workforce, it provides focused training across hotel operations. <br/> Lexicon MILE (Study Center No. 62582) is an authorized YCMOU study center offering the 1-year Diploma in Hospitality Studies (V121) program, structured as per NEP guidelines combining theoretical knowledge, practical skills, and service aptitude. The program is recognized by the Association of Indian Universities (AIU) and is equivalent to degrees, diplomas, and certificates of all Indian universities and institutions, as per UGC guidelines.",
+    duration: "International Program",
+    type: "International",
+    accent: "#002244",
+    accentLight: "#004E7E",
+    bgGradient: "linear-gradient(135deg, #0A1F3A 0%, #0D2E50 60%, #0F3A66 100%)",
+    highlights: [
+      { icon: Clock, text: "1 Year Full-Time" }
+    ],
+    features: [
+      "Fast-track, industry-relevant programs",
+      "Earn-While-You-Learn with embedded internships",
+      "Apprenticeship opportunities with leading hotel brands",
+      "Affordable fees with strong placement & internship support",
+      "5 months of on-campus training + 6 months of internship to make students industry-ready hospitality professionals from day one"
+    ],
+    eligibility: " Candidate should be 12th Pass from ICSE, CBSE, IGCSE (ICE) & any other recognised board by the competent authority. An equivalence certificate is required from the respective board in case the result is in grade/credit points.",
+    modalEvent: "openMbaModal",
+    enquireEvent: "openEnquireModal",
+    note: null,
+  },
 ];
 
 const CoursesSection = () => {
@@ -177,31 +177,11 @@ const CoursesSection = () => {
               </motion.div>
             );
           })}
-          <div className="h-full">
+          {/* <div className="h-full">
             <img src="./programs/2.jpg" className="w-full h-full rounded-2xl object-cover" alt="" />
-          </div>
+          </div> */}
         </div>
 
-        {/* Bottom Trust Strip */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-12 bg-white rounded-2xl px-8 py-5 flex flex-wrap items-center justify-center gap-8 shadow-sm border border-[#004E7E]/10"
-        >
-          {[
-            { label: "AICTE Approved", value: "1-4255511" },
-            { label: "Ranked", value: "#1 Private Standalone, Pune" },
-            { label: "Placement Rate", value: "93%+" },
-            { label: "Industry Partners", value: "200+" },
-          ].map((item) => (
-            <div key={item.label} className="text-center">
-              <p className="text-[#002244] font-black text-lg font-display">{item.value}</p>
-              <p className="text-[#4A5568] text-xs">{item.label}</p>
-            </div>
-          ))}
-        </motion.div> */}
       </div>
     </section>
   );

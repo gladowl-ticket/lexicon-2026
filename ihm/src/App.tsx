@@ -17,9 +17,11 @@ const App = () => (
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          {/* custom routes */}
           <Route path="/thankyou" element={<ThankYou />} />
+          <Route path="/thankyou.html" element={<ThankYou />} />
+          {/* catch-all must come last */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
