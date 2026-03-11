@@ -77,11 +77,11 @@ const CoursesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-[#004E7E] text-sm font-semibold tracking-widest uppercase mb-4 border border-[#004E7E]/30 rounded-full px-4 py-1 bg-[#004E7E]/5">
+          {/* <span className="inline-block text-[#004E7E] text-sm font-semibold tracking-widest uppercase mb-4 border border-[#004E7E]/30 rounded-full px-4 py-1 bg-[#004E7E]/5">
             Our Programs
-          </span>
+          </span> */}
           <h2 className="font-display text-[40px] leading-tight font-black text-[#002244] uppercase tracking-wide">
-            Admission <span className="text-[#004E7E]">Information</span>
+            Our <span className="text-[#004E7E]">Programs</span>
           </h2>
         </motion.div>
 
