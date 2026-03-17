@@ -22,20 +22,20 @@ const PlacementSection = () => {
                     Structured Internships & Live Project Integration
                   </li>
                   <li className="text-md  mb-1">
-                    Degree + Business Launch Pathway
+                    Placement Mentorship & Al-Driven Interview Preparation
                   </li>
                 </ul>
               </div>
               <div className="w-full lg:w-1/2 lg:ps-2">
                 <ul className="list-disc ps-6 lg:py-2">
                   <li className="text-md  mb-1">
+                    Degree + Business Launch Pathway
+                  </li>
+                  <li className="text-md  mb-1">
                     Employment-Enhancing Certifications
                   </li>
                   <li className="text-md  mb-1">
                     Corporate Saturdays with Industry Leaders{" "}
-                  </li>
-                  <li className="text-md  mb-1">
-                    Placement Mentorship & Al-Driven Interview Preparation
                   </li>
                   <li className="text-md  mb-1">
                     FailLab & Simulation-Based Learning Environment

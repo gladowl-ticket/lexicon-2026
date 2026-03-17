@@ -223,6 +223,6 @@
 .bullet {
   width: 10px; /* w-2.5 */
   height: 10px;
-  background-color: #003b64; /* blue-600 */
+  background-color: transparent; /* blue-600 */
   border-radius: 50%;
 }
