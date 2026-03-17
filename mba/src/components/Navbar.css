@@ -1,0 +1,152 @@
+.navbarlogo {
+  height: 4rem;
+  width: auto;
+}
+@media (max-width: 900px) {
+  .navbarlogo {
+    height: 3rem;
+    width: auto;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .navbarContainer {
+    margin: 0 auto;
+    padding: 1rem 2rem !important;
+    animation: slideDown 0.5s ease forwards;
+   
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .navbarContainer {
+    margin: 0 auto;
+    padding: 1rem 6rem !important;
+    animation: slideDown 0.5s ease forwards;
+    
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbarContainer {
+    padding: 1rem 0.5rem !important;    
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .navbar-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    font-family: Montserrat, sans-serif;
+  }
+}
+
+
+.custom-animation {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #6ba539;
+  transition: all 0.3s ease;
+}
+
+.group:hover .custom-animation {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 950px){
+    .enquire-btn{
+        display: none !important;
+    }
+}
+
+
+
+@media screen and (min-width:300px) and (max-width:400px){
+    .md-btn-space{
+        gap:5px;
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 401px){
+ .md-btn-space{
+    font-size: 16px;
+ }
+}
+
+.navbar-toggle {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  color: #003b64;
+  background: rgba(0, 59, 100, 0.08);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-toggle:hover {
+  background: rgba(0, 59, 100, 0.15);
+  transform: translateY(-1px);
+}
+
+.navbar-toggle svg {
+  display: none;
+}
+
+.navbar-toggle::before,
+.navbar-toggle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.2s ease;
+}
+
+.navbar-toggle::before {
+  top: 16px;
+  box-shadow: 0 7px 0 currentColor;
+}
+
+.navbar-toggle::after {
+  top: 30px;
+}
+
+.navbar-toggle[aria-expanded="true"]::before {
+  transform: translateX(-50%) translateY(7px) rotate(45deg);
+  box-shadow: none;
+}
+
+.navbar-toggle[aria-expanded="true"]::after {
+  transform: translateX(-50%) translateY(-7px) rotate(-45deg);
+}
+
+/* navbar collapse base */
+[data-testid="flowbite-navbar-collapse"] {
+  display: block !important;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: max-height 0.35s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* when open (hidden removed) */
+[data-testid="flowbite-navbar-collapse"]:not(.hidden) {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (min-width: 768px) {
+  [data-testid="flowbite-navbar-collapse"] {
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    overflow: visible;
+  }
+}
