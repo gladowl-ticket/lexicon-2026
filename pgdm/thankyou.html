@@ -1,0 +1,528 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="shortcut icon" href="https://lexiconmile.com/wp-content/uploads/2026/02/cropped-fav.png" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <!-- <meta
+      http-equiv="refresh"
+      content="1;url="
+    /> -->
+
+    <meta property="" content="" />
+    <title>
+      Thank You | Lexicon Management Institute
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no user-scalable=no"
+    />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5DQRQGXM');</script>
+<!-- End Google Tag Manager -->
+  </head>
+
+  <body>
+    <canvas class="grey darken-4" id="canvas" width="" height=""> </canvas>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow: hidden;
+        background: #fff;
+      }
+      .bg-red{
+        background-color: #9e1b35;
+    }
+
+      img {
+        max-width: 100%;
+      }
+
+      #canvas {
+        width: 100%;
+        height: 100%;
+      }
+
+      .text span {
+        font-weight: 500;
+      }
+
+      .btn {
+        margin: 40px auto 0;
+        width: 200px;
+        position: relative;
+      }
+
+      .text span.complete {
+        font-weight: bold;
+        margin: 19px 0 7px;
+        display: inline-block;
+        font-size: 30px;
+      }
+
+      .btn::before {
+        content: "";
+        margin: 40px auto 0;
+        width: 73px;
+        background-image: url(img/degree.webp);
+        position: absolute;
+        left: -55px;
+        bottom: -5px;
+        height: 50px;
+        background-size: 70px;
+        background-repeat: no-repeat;
+      }
+
+      .text {
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+        font-weight: 100;
+        color: #000;
+      }
+
+      .tankyou {
+        max-width: 700px;
+        margin: auto;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+
+      .logo {
+        width: 220px;
+        display: flex;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 9;
+        /* background-color: #3c478d; */
+        padding: 12px;
+      }
+      /* .logo img{
+          width: 50%;
+      } */
+
+      .cong {
+        width: 275px;
+        margin: 0 auto 20px;
+        position: relative;
+        z-index: 9;
+      }
+
+
+      @media screen and (min-width: 320px) and (max-width: 850px) {
+        .text {
+          width: 97% !important;
+        }
+      }
+
+      .btn a {
+        background: #eb731e;
+        color: #fff;
+        text-decoration: none;
+        padding: 9px 40px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        font-size: 19px;
+        font-weight: bold;
+      }
+
+      .btn a:hover {
+        background: #1a1a1a;
+      }
+
+      @media screen and (max-width: 480px) {
+        .text span.complete {
+          font-size: 26px;
+          line-height: 25px;
+        }
+
+        .text {
+          font-size: 15px;
+          text-align: center;
+          font-weight: 100;
+          line-height: 22px;
+        }
+      }
+    </style>
+
+    <div class="tankyou">
+      <div class="logo">
+        <img src="https://lexiconmile.com/wp-content/uploads/2020/03/black_Logo.svg" loading="lazy" alt="logo" />
+      </div>
+      <div class="cong">
+        <img src="./thank_you.webp" loading="lazy" alt="cong" />
+      </div>
+
+      <div class="text" >
+        <!-- Form Submitted Successfully<br> -->
+        <span
+          >You have successfully completed your Step 1 towards Application at
+            Lexicon Management Institute.</span
+        >
+        <!-- <span class="complete">To complete your application</span> -->
+      </div>
+    </div>
+
+    <script>
+      var canvas = document.getElementById("canvas");
+      var c = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      var mouse = {
+        x: undefined,
+        y: undefined,
+      };
+
+      window.addEventListener("mousemove", function (e) {
+        mouse.x = e.x;
+        mouse.y = e.y;
+      });
+
+      window.addEventListener("resize", function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+
+      function Circle() {
+        this.radius = getRandomInt(10);
+        this.originalSize = this.radius;
+        this.x = Math.random() * (innerWidth - this.radius * 2) + this.radius;
+        this.y = Math.random() * (innerHeight - this.radius * 2) + this.radius;
+        this.gradient = Math.random();
+        this.color =
+          "rgba(" +
+          getRandomInt(255) +
+          "," +
+          getRandomInt(255) +
+          "," +
+          getRandomInt(255) +
+          "," +
+          this.gradient +
+          ")";
+        this.xVelocity = 5 * (Math.random() - Math.random());
+        this.yVelocity = 5 * (Math.random() - Math.random());
+        this.draw = function () {
+          // c.font = 'lighter 80px sans-serif';
+          // c.fillStyle = '#dedede';
+          // c.textAlign = 'center';
+          // c.fillText('Bouncing Bubbles', canvas.width/2, canvas.height/2);
+          c.beginPath();
+          c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+          c.strokeStyle = this.color;
+          c.stroke();
+          c.fillStyle = this.color;
+          c.fill();
+          this.update();
+        };
+        this.update = function () {
+          if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+            this.xVelocity = -this.xVelocity;
+          }
+          if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
+            this.yVelocity = -this.yVelocity;
+          }
+          this.x += this.xVelocity;
+          this.y += this.yVelocity;
+
+          if (
+            mouse.x - this.x < 50 &&
+            mouse.x - this.x > -50 &&
+            mouse.y - this.y < 10 &&
+            mouse.y - this.y > -50
+          ) {
+            if (this.radius < 100) {
+              this.radius += 2;
+            }
+          } else if (this.radius !== this.originalSize) {
+            this.radius -= 2;
+          }
+        };
+      }
+
+      var circleArray = [];
+
+      for (var i = 0; i < 30; i++) {
+        circleArray.push(new Circle());
+      }
+
+      function animate() {
+        c.clearRect(0, 0, innerWidth, innerHeight);
+        for (var i = 0; i < circleArray.length; i++) {
+          circleArray[i].draw();
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+
+    <!--UTM SCRIPT -->
+    <script>
+      function ZFAdvLead() {}
+      ((ZFAdvLead.utmPValObj = ZFAdvLead.utmPValObj || {}),
+        (ZFAdvLead.utmPNameArr = new Array(
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content",
+        )),
+        (ZFAdvLead.utmcustPNameArr = new Array()),
+        (ZFAdvLead.isSameDomian = !1),
+        (ZFAdvLead.prototype.zfautm_sC = function (t, e, a, m) {
+          var d = ZFAdvLead.utmPValObj[t];
+          null != d &&
+            ((t = t + "=" + encodeURIComponent(d)),
+            (d = new Date()).setDate(d.getDate() + 7),
+            (t += "; expires=" + d.toGMTString()),
+            (t += "; path=/"),
+            a && (t += "; domain=" + encodeURIComponent(a)),
+            m && (t += "; secure"),
+            (document.cookie = t));
+        }),
+        (ZFAdvLead.prototype.zfautm_ini = function () {
+          this.zfautm_bscPCap();
+          for (
+            var t, e = document.location.search, a = 0;
+            a < ZFAdvLead.utmcustPNameArr.length;
+            a++
+          ) {
+            var m,
+              d = ZFAdvLead.utmcustPNameArr[a];
+            ("referrername" == d
+              ? (m = (document.URL || "").slice(0, 1500))
+              : (null != (m = this.zfautm_gP(e, d)) && "" != m) ||
+                (m = this.zfautm_gC(d)),
+              void 0 !== m &&
+                (null !== m) & ("" != m) &&
+                (ZFAdvLead.utmPValObj[d] = m));
+          }
+          for (t in ZFAdvLead.utmPValObj) this.zfautm_sC(t);
+        }),
+        (ZFAdvLead.prototype.zfautm_bscPCap = function () {
+          var t = this.zfautm_calcTrafSrc();
+          ("" != t.source && (ZFAdvLead.utmPValObj.utm_source = t.source),
+            "" != t.medium && (ZFAdvLead.utmPValObj.utm_medium = t.medium),
+            "" != t.campaign &&
+              (ZFAdvLead.utmPValObj.utm_campaign = t.campaign),
+            "" != t.term && (ZFAdvLead.utmPValObj.utm_term = t.term),
+            "" != t.content && (ZFAdvLead.utmPValObj.utm_content = t.content));
+        }),
+        (ZFAdvLead.prototype.zfautm_calcTrafSrc = function () {
+          var t = "",
+            e = "",
+            a = "",
+            m = "",
+            d = "",
+            r = [
+              ["bing", "q"],
+              ["google", "q"],
+              ["yahoo", "q"],
+              ["baidu", "q"],
+              ["yandex", "q"],
+              ["ask", "q"],
+            ],
+            u = (u = document.referrer).substr(u.indexOf("//") + 2);
+          ((ref_domain = u), (ref_path = "/"), (ref_search = ""));
+          var i = document.location.search;
+          if (
+            -1 < i.indexOf("utm_source") ||
+            -1 < i.indexOf("utm_medium") ||
+            -1 < i.indexOf("utm_campaign") ||
+            -1 < i.indexOf("utm_term") ||
+            -1 < i.indexOf("utm_content")
+          )
+            ((t = this.zfautm_gP(i, "utm_source")),
+              (e = this.zfautm_gP(i, "utm_medium")),
+              (a = this.zfautm_gP(i, "utm_campaign")),
+              (m = this.zfautm_gP(i, "utm_term")),
+              (d = this.zfautm_gP(i, "utm_content")));
+          else if (this.zfautm_gP(i, "gclid"))
+            ((t = "Google Ads"),
+              (e = "cpc"),
+              (a = "(not set)"),
+              ZFAdvLead.utmcustPNameArr.includes("gclid") ||
+                ZFAdvLead.utmcustPNameArr.push("gclid"));
+          else if (u) {
+            var n = this.zfautm_gC("utm_source"),
+              o = this.zfautm_gC("utm_medium"),
+              f = this.zfautm_gC("utm_campaign"),
+              c = this.zfautm_gC("utm_term"),
+              _ = this.zfautm_gC("utm_content");
+            if (
+              void 0 === n &&
+              void 0 === o &&
+              void 0 === f &&
+              void 0 === c &&
+              void 0 === _
+            ) {
+              (-1 < u.indexOf("/") &&
+                ((ref_domain = u.substr(0, u.indexOf("/"))),
+                (ref_path = u.substr(u.indexOf("/"))),
+                -1 < ref_path.indexOf("?") &&
+                  ((ref_search = ref_path.substr(ref_path.indexOf("?"))),
+                  (ref_path = ref_path.substr(0, ref_path.indexOf("?"))))),
+                (e = "referral"),
+                (t = ref_domain));
+              for (var v = 0; v < r.length; v++)
+                if (-1 < ref_domain.indexOf(r[v][0])) {
+                  ((e = "organic"),
+                    (t = r[v][0]),
+                    (m =
+                      this.zfautm_gP(ref_search, r[v][1]) || "(not provided)"));
+                  break;
+                }
+            } else
+              (void 0 !== n && (t = n),
+                void 0 !== o && (e = o),
+                void 0 !== f && (a = f),
+                void 0 !== c && (m = c),
+                void 0 !== _ && (d = _));
+          } else {
+            ((n = this.zfautm_gC("utm_source")),
+              (o = this.zfautm_gC("utm_medium")),
+              (f = this.zfautm_gC("utm_campaign")),
+              (c = this.zfautm_gC("utm_term")),
+              (_ = this.zfautm_gC("utm_content")));
+            void 0 === n &&
+            void 0 === o &&
+            void 0 === f &&
+            void 0 === c &&
+            void 0 === _
+              ? (-1 <
+                  (u = (u = document.URL).substr(u.indexOf("//") + 2)).indexOf(
+                    "/",
+                  ) && (u = u.substr(0, u.indexOf("/"))),
+                (t = u),
+                (e = "referral"))
+              : (void 0 !== n && (t = n),
+                void 0 !== o && (e = o),
+                void 0 !== f && (a = f),
+                void 0 !== c && (m = c),
+                void 0 !== _ && (d = _));
+          }
+          return {
+            source: t,
+            medium: e,
+            campaign: a,
+            term: m,
+            content: d,
+          };
+        }),
+        (ZFAdvLead.prototype.zfautm_gP = function (t, e) {
+          try {
+            var a = t.match("[?&]" + e + "=([^&]+)");
+            return a ? decodeURIComponent(a[1]) : "";
+          } catch (t) {
+            return "";
+          }
+        }),
+        (ZFAdvLead.prototype.zfautm_gC = function (t) {
+          for (var e = document.cookie.split("; "), a = 0; a < e.length; a++) {
+            var m = e[a].split("=");
+            if (m[0] === t && m[1]) return decodeURIComponent(m[1]);
+          }
+        }),
+        (ZFAdvLead.prototype.zfautm_gC_enc = function (t) {
+          for (var e = document.cookie.split("; "), a = 0; a < e.length; a++) {
+            var m = e[a].split("=");
+            if (m[0] === t && m[1]) return m[1];
+          }
+        }),
+        (ZFAdvLead.prototype.zfautm_iframeSprt = function () {
+          for (
+            var t = document.getElementsByTagName("iframe"), e = 0;
+            e < t.length;
+            ++e
+          )
+            if (0 < t[e].src.indexOf("formperma")) {
+              for (
+                var a = t[e].src, m = 0;
+                m < ZFAdvLead.utmPNameArr.length;
+                m++
+              ) {
+                var d = ZFAdvLead.utmPNameArr[m],
+                  d =
+                    ZFAdvLead.isSameDomian &&
+                    -1 == ZFAdvLead.utmcustPNameArr.indexOf(d)
+                      ? "zf_" + d
+                      : d,
+                  r = this.zfautm_gC_enc(ZFAdvLead.utmPNameArr[m]);
+                void 0 !== r &&
+                  "" != r &&
+                  (a =
+                    0 < a.indexOf("?")
+                      ? a + "&" + d + "=" + r
+                      : a + "?" + d + "=" + r);
+              }
+              t[e].src.length < a.length && (t[e].src = a);
+            }
+        }),
+        (ZFAdvLead.prototype.zfautm_DHtmlSprt = function () {
+          for (var t = document.forms, e = 0; e < t.length; e++) {
+            var a = t[e].action;
+            if (a && 0 < a.indexOf("formperma"))
+              for (var m = 0; m < ZFAdvLead.utmPNameArr.length; m++) {
+                var d = ZFAdvLead.utmPNameArr[m],
+                  r = this.zfautm_gC(ZFAdvLead.utmPNameArr[m]);
+                void 0 !== r && ("" == r || ((d = t[e][d]) && (d.value = r)));
+              }
+          }
+        }),
+        (ZFAdvLead.prototype.zfautm_jsEmbedSprt = function (t) {
+          document.getElementById("zforms_iframe_id").removeAttribute("onload");
+          for (
+            var e = document.getElementById("zforms_iframe_id"),
+              a = e.src,
+              m = 0;
+            m < ZFAdvLead.utmPNameArr.length;
+            m++
+          ) {
+            var d = ZFAdvLead.utmPNameArr[m],
+              d =
+                ZFAdvLead.isSameDomian &&
+                -1 == ZFAdvLead.utmcustPNameArr.indexOf(d)
+                  ? "zf_" + d
+                  : d,
+              r = this.zfautm_gC_enc(ZFAdvLead.utmPNameArr[m]);
+            void 0 !== r &&
+              "" != r &&
+              (a =
+                0 < a.indexOf("?")
+                  ? a + "&" + d + "=" + r
+                  : a + "?" + d + "=" + r);
+          }
+          e.src = a;
+        }));
+      var zfutm_zfAdvLead = new ZFAdvLead();
+      (zfutm_zfAdvLead.zfautm_ini(),
+        "complete" == document.readyState
+          ? (zfutm_zfAdvLead.zfautm_iframeSprt(),
+            zfutm_zfAdvLead.zfautm_DHtmlSprt())
+          : window.addEventListener(
+              "load",
+              function () {
+                (zfutm_zfAdvLead.zfautm_iframeSprt(),
+                  zfutm_zfAdvLead.zfautm_DHtmlSprt());
+              },
+              !1,
+            ));
+    </script>
+    <!--END-->
+  </body>
+</html>

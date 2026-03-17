@@ -1,0 +1,12 @@
+.zoho-form{
+  width: 99%;
+  height: 480px;
+  border: none;
+}
+
+/* Responsive */
+@media (min-width:1024px) and (max-width:1100px){
+  .zoho-form{
+    height: 330px;
+  }
+}
