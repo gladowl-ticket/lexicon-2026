@@ -1,39 +1,226 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="https://lexiconmile.com/wp-content/uploads/2026/02/cropped-fav.png" />
-  <!-- Google Fonts import for Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <!-- TODO: Set the document title to the name of your application -->
-  <title>Lexicon Management Institute of Leadership & Excellence (Lexicon MILE), Pune</title>
-  <meta name="description" content="Lexicon Management Institute of Leadership & Excellence (Lexicon MILE), Pune" />
-  <meta name="author" content="Lexicon MILE" />
-
-  <meta property="og:title" content="Lexicon Management Institute of Leadership & Excellence (Lexicon MILE), Pune" />
-  <meta property="og:description" content="Lexicon Management Institute of Leadership & Excellence (Lexicon MILE), Pune" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@LexiconMILE" />
-  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-<!-- Google Tag Manager -->
+  <head>
+      <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5DQRQGXM');</script>
 <!-- End Google Tag Manager -->
-</head>
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-  <script type="text/javascript"> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You</title>
+
+    <!-- Optional: Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .thankyou-page {
+        font-family: "Poppins", sans-serif;
+        overflow: hidden;
+        background: #fff;
+        min-height: 100vh;
+      }
+
+      .canvas-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .tankyou {
+        max-width: 700px;
+        margin: auto;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        z-index: 2;
+        padding: 0 16px;
+      }
+
+      .logo {
+        width: 220px;
+        margin: 0 auto 40px;
+      }
+      .logo img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .cong {
+        width: 275px;
+        margin: 0 auto 20px;
+      }
+      .cong img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .text {
+        font-size: 24px;
+        line-height: 30px;
+        color: #000;
+        padding-bottom: 25px;
+      }
+
+      .btn a {
+        background: #eb731e;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 40px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-block;
+      }
+
+      .btn a:hover {
+        background: #1a1a1a;
+      }
+
+      /* If you want to hide button like your "hidden" class */
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="thankyou-page">
+      <canvas id="canvas" class="canvas-bg"></canvas>
+
+      <div class="tankyou">
+        <div class="logo">
+          <img
+            src="https://lexiconmile.com/wp-content/uploads/2020/03/black_Logo.svg"
+            alt="logo"
+          />
+        </div>
+
+        <div class="cong">
+          <!-- Make sure thank_you.webp is available relative to this HTML file -->
+          <img src="./thank_you.webp" alt="thank you" />
+        </div>
+
+        <div class="text">
+          <span>
+            You have successfully completed your Step 1 towards Application at
+            Lexicon Management Institute
+          </span>
+        </div>
+
+        <div class="btn">
+          <a href="https://lexiconmile.com/admission_open_pgdm_globalmba_2026/">Back to Home</a>
+        </div>
+
+        <!-- If you want it hidden by default, use:
+        <div class="btn hidden"><a href="/">Back to Home</a></div>
+        -->
+      </div>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const c = canvas.getContext("2d");
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+
+      const mouse = { x: undefined, y: undefined };
+
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+      });
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      function Circle() {
+        this.radius = getRandomInt(10);
+        this.originalSize = this.radius;
+        this.x = Math.random() * window.innerWidth;
+        this.y = Math.random() * window.innerHeight;
+        this.color = `rgba(${getRandomInt(255)},${getRandomInt(
+          255
+        )},${getRandomInt(255)},0.5)`;
+        this.dx = (Math.random() - 0.5) * 4;
+        this.dy = (Math.random() - 0.5) * 4;
+
+        this.draw = () => {
+          c.beginPath();
+          c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          c.fillStyle = this.color;
+          c.fill();
+        };
+
+        this.update = () => {
+          const w = window.innerWidth;
+          const h = window.innerHeight;
+
+          if (this.x + this.radius > w || this.x - this.radius < 0) {
+            this.dx = -this.dx;
+          }
+          if (this.y + this.radius > h || this.y - this.radius < 0) {
+            this.dy = -this.dy;
+          }
+
+          this.x += this.dx;
+          this.y += this.dy;
+
+          if (
+            mouse.x != null &&
+            mouse.y != null &&
+            mouse.x - this.x < 50 &&
+            mouse.x - this.x > -50 &&
+            mouse.y - this.y < 50 &&
+            mouse.y - this.y > -50
+          ) {
+            if (this.radius < 80) this.radius += 2;
+          } else if (this.radius > this.originalSize) {
+            this.radius -= 2;
+          }
+
+          this.draw();
+        };
+      }
+
+      const circles = [];
+      for (let i = 0; i < 30; i++) circles.push(new Circle());
+
+      function animate() {
+        c.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        circles.forEach((circle) => circle.update());
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+     <script type="text/javascript"> 
 function ZFAdvLead(){
 }
 ZFAdvLead.utmPValObj = ZFAdvLead.utmPValObj || {};
@@ -322,6 +509,5 @@ if( document.readyState == "complete" ){
   }, false);
 }
 </script>
-</body>
-
+  </body>
 </html>

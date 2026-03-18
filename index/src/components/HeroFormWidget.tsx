@@ -1,59 +1,105 @@
 import { useEffect } from "react";
 
-const NPF_CARD_CSS = `
-  .npf_wgts {
-    width: 100%;
-    min-height: 400px;
+// Declare global Zoho Form variables
+declare global {
+  interface Window {
+    ZFAdvLead?: any;
+    ZFLead?: any;
+    zfutm_zfAdvLead?: any;
+    zfutm_zfLead?: any;
   }
-  .npf_wgts iframe {
-    width: 100%;
-    min-height: 400px;
-    border: 0;
-    display: block;
-  }
-  #npf-hero-frame {
-    width: 100%;
-    border: none;
-    display: block;
-  }
-`;
+}
 
 const HeroFormWidget = () => {
   useEffect(() => {
     // Inject CSS once
-    const styleId = "npf-card-style";
-    if (!document.getElementById(styleId)) {
-      const style = document.createElement("style");
-      style.id = styleId;
-      style.innerHTML = NPF_CARD_CSS;
-      document.head.appendChild(style);
-    }
+    	try{
+		var f = document.createElement("iframe");
+		
+			var ifrmSrc = 'https://forms.zohopublic.in/gladowlwebsolutionspvtltd/form/LexiconIndex2026/formperma/H2pChOncl8X5yB6p29ZD05LczR7Wl-37WsE_bJbAloY?zf_rszfm=1';
+		
+		
+        try{
+			if ( typeof ZFAdvLead != "undefined" && typeof zfutm_zfAdvLead != "undefined" ) {
+				for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
+				    var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
+				    utmPm = ( ZFAdvLead.isSameDomian && ( ZFAdvLead.utmcustPNameArr.indexOf(utmPm) == -1 ) ) ? "zf_" + utmPm : utmPm;
+				    var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
+				    if ( typeof utmVal !== "undefined" ) {
+				      if ( utmVal != "" ) {
+				        if(ifrmSrc.indexOf('?') > 0){
+				             ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;
+				        }else{
+				            ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;
+				        }
+				      }
+				    }
+				}
+			}
+			if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
+				for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
+		        	var utmPm = ZFLead.utmPNameArr[ prmIdx ];
+		        	var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
+			        if ( typeof utmVal !== "undefined" ) {
+			          if ( utmVal != "" ){
+			            if(ifrmSrc.indexOf('?') > 0){
+			              ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;//No I18N
+			            }else{
+			              ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;//No I18N
+			            }
+			          }
+			        }
+		      	}
+			}
+		}catch(e){}
+		
+		f.src = ifrmSrc;
+		f.style.border="none";
+		f.style.height="544px";
+		f.style.width="100%";
+		f.style.transition="all 0.5s ease";
+		f.setAttribute("aria-label", 'Lexicon Index 2026');
+		
+		var d = document.getElementById("zf_div_H2pChOncl8X5yB6p29ZD05LczR7Wl-37WsE_bJbAloY");
+		d.appendChild(f);
+		window.addEventListener('message', function (event: MessageEvent){
+			var evntData = event.data;
+			if( evntData && evntData.constructor == String ){
+				var zf_ifrm_data = evntData.split("|");
+				if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
+					var zf_perma = zf_ifrm_data[0];
+					var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+					var iframe = document.getElementById("zf_div_H2pChOncl8X5yB6p29ZD05LczR7Wl-37WsE_bJbAloY").getElementsByTagName("iframe")[0];
+					if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+						var prevIframeHeight = iframe.style.height;
+						var zf_tout = false;
+						if( zf_ifrm_data.length == 3 ) {
+						    iframe.scrollIntoView();
+						    zf_tout = true;
+						}
 
-    // Inject NPF script once
-    const scriptId = "npf-widget-script";
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.id = scriptId;
-      script.src = "https://widgets.nopaperforms.com/emwgts.js";
-      script.async = true;
-      script.onload = () => {
-        if (typeof window !== "undefined") {
-          (window as unknown as { npfWidgetsInit?: () => void }).npfWidgetsInit?.();
-        }
-      };
-      document.body.appendChild(script);
-    } else if (typeof window !== "undefined") {
-      (window as unknown as { npfWidgetsInit?: () => void }).npfWidgetsInit?.();
+						if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+							if( zf_tout ) {
+							    setTimeout(function(){
+							        iframe.style.height = zf_ifrm_ht_nw;
+							    },500);
+							} else {
+							    iframe.style.height = zf_ifrm_ht_nw;
+							}
+						}
+					}
+				}
+			}
+		}, false);
+    }catch(e){
+      console.log(e);
     }
   }, []);
 
   return (
     <div className="w-full">
-      <div
-        className="npf_wgts w-full min-h-[400px]"
-        data-height="410px"
-        data-w="104bf25d3c65c756d2c4175bdddcc6c5"
-      ></div>
+      <div id="zf_div_H2pChOncl8X5yB6p29ZD05LczR7Wl-37WsE_bJbAloY">
+      </div>
     </div>
   );
 };
