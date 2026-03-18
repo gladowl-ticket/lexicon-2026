@@ -1,15 +1,11 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import HeroFormWidget from "./HeroFormWidget";
 
 type ModalContent = "pgdm" | "mba" | "enquire" | null;
 
-const IFRAME_URLS = {
-    enquire: "https://widgets.nopaperforms.com/register?&w=104bf25d3c65c756d2c4175bdddcc6c5",
-};
 
 const MODAL_TITLES = {
-    pgdm: "PGDM Brochure",
-    mba: "MBA Global Brochure",
     enquire: "Enquire Now",
 };
 
@@ -101,15 +97,8 @@ const FloatingActions = () => {
                                 <X className="w-5 h-5 text-white" />
                             </button>
                         </div>
-                        <div>
-                            <iframe
-                                frameBorder="0"
-                                width="100%"
-                                height="480px"
-                                className="w-full"
-                                src={IFRAME_URLS[activeModal]}
-                                title={MODAL_TITLES[activeModal]}
-                            />
+                        <div className="px-8 pt-4">
+                            <HeroFormWidget/>
                         </div>
                     </div>
                 </div>

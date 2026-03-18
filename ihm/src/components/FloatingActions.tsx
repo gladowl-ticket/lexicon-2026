@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import NpfWidget from "@/components/NpfWidget";
+import HeroFormWidget from "@/components/HeroFormWidget";
 
 type ModalContent = "pgdm" | "mba" | "enquire" | null;
 
 const MODAL_TITLES = {
-    pgdm: "PGDM Brochure",
-    mba: "MBA Global Brochure",
     enquire: "Enquire Now",
 };
 
@@ -98,8 +96,8 @@ const FloatingActions = () => {
                                 <X className="w-5 h-5 text-white" />
                             </button>
                         </div>
-                        <div className="p-4">
-                            <NpfWidget />
+                        <div className="px-8 pt-4">
+                            <HeroFormWidget />
                         </div>
                     </div>
                 </div>
