@@ -13,10 +13,10 @@ export const NpfWidget = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const height = width >= 1024 && width <= 1100 ? "350px" : "480px";
+  const height = width >= 1024 && width <= 1100 ? "350px" : "450px";
 
   return (
-    <div className="bg-white rounded-lg">
+    <div className="bg-white">
       <iframe
         aria-label="Lexicon PGDM 2026"
         className="zoho-forms"

@@ -12,16 +12,16 @@ const Recruiters = () => {
   const handleViewLess = () => {
     setShowAll(false);
 
-    document
-      .getElementById("logoGrid")
-      ?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("logoGrid")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="" id="recruiters">
       <div className="py-12 container ">
         <div className="flex justify-center mb-8">
-            <h2 className="text-4xl lg:text-5xl text-blue-950 font-bold">Our Recruiters</h2>
+          <h2 className="text-4xl lg:text-5xl text-blue-950 font-bold text-center">
+            Our Recruiters
+          </h2>
         </div>
         {/* Logo Grid */}
         <div
@@ -64,7 +64,6 @@ const Recruiters = () => {
             </button>
           )}
         </div>
-
       </div>
     </section>
   );

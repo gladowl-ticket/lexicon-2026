@@ -226,3 +226,8 @@
   background-color: transparent; /* blue-600 */
   border-radius: 50%;
 }
+
+.logo_01 {
+  height: 55px;
+  object-fit: contain;
+}

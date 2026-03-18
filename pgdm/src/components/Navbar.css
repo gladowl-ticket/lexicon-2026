@@ -11,24 +11,22 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
   .navbarContainer {
     margin: 0 auto;
-    padding: 1rem 2rem !important;
+    padding: 5px 6rem !important;
     animation: slideDown 0.5s ease forwards;
-   
   }
 }
 
 @media screen and (min-width: 1280px) {
   .navbarContainer {
     margin: 0 auto;
-    padding: 1rem 6rem !important;
+    padding: 5px 6rem !important;
     animation: slideDown 0.5s ease forwards;
-    
   }
 }
 
 @media screen and (max-width: 767px) {
   .navbarContainer {
-    padding: 1rem 0.5rem !important;    
+    padding: 1rem 0.5rem !important;
   }
 }
 
@@ -40,7 +38,6 @@
     font-family: Montserrat, sans-serif;
   }
 }
-
 
 .custom-animation {
   position: absolute;
@@ -56,24 +53,22 @@
   width: 100%;
 }
 
-@media screen and (min-width: 768px) and (max-width: 950px){
-    .enquire-btn{
-        display: none !important;
-    }
+@media screen and (min-width: 768px) and (max-width: 950px) {
+  .enquire-btn {
+    display: none !important;
+  }
 }
 
-
-
-@media screen and (min-width:300px) and (max-width:400px){
-    .md-btn-space{
-        gap:5px;
-        font-size: 12px;
-    }
+@media screen and (min-width: 300px) and (max-width: 400px) {
+  .md-btn-space {
+    gap: 5px;
+    font-size: 12px;
+  }
 }
-@media screen and (min-width: 401px){
- .md-btn-space{
+@media screen and (min-width: 401px) {
+  .md-btn-space {
     font-size: 16px;
- }
+  }
 }
 
 .navbar-toggle {
@@ -83,7 +78,9 @@
   border-radius: 12px;
   color: #003b64;
   background: rgba(0, 59, 100, 0.08);
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
 .navbar-toggle:hover {
@@ -105,7 +102,10 @@
   background: currentColor;
   border-radius: 999px;
   transform: translateX(-50%);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.2s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    opacity 0.2s ease;
 }
 
 .navbar-toggle::before {
@@ -133,7 +133,10 @@
   max-height: 0;
   opacity: 0;
   transform: translateY(-8px);
-  transition: max-height 0.35s ease, opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 /* when open (hidden removed) */

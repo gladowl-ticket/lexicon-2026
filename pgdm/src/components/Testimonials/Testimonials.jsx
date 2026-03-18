@@ -2,23 +2,8 @@ import React, { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { TestiModal } from "./TestiModal";
 import "./Testimonials.css";
-
-const img = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-  "13",
-];
 
 const testimonialsData = [
   "ZjOLI8VYPTc?si=CWnA_0CPbNhG9hia",
@@ -46,6 +31,20 @@ const Testimonials = () => {
     ],
   );
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeVideo, setActiveVideo] = useState("");
+
+  const openModal = (video) => {
+    const id = video.split("?")[0]; // remove extra params
+    setActiveVideo(id);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setActiveVideo("");
+  };
+
   const goToPrev = () => emblaApi?.scrollPrev();
   const goToNext = () => emblaApi?.scrollNext();
 
@@ -58,7 +57,7 @@ const Testimonials = () => {
     <section id="testimonials">
       <div className="container py-12">
         <div className="flex justify-center pb-8">
-          <h2 className="text-4xl lg:text-5xl text-blue-950 font-bold">
+          <h2 className="text-4xl lg:text-5xl text-blue-950 font-bold text-center">
             Student Testimonials
           </h2>
         </div>
@@ -66,21 +65,26 @@ const Testimonials = () => {
           <div className="embla">
             <div className="embla__viewport" ref={emblaRef}>
               <div className="embla__container">
-                {testimonialsData.map((url, index) => (
-                  <div key={index} className="embla__slide">
-                    <div className="w-full h-[220px] md:h-[300px] rounded-lg overflow-hidden">
-                      <iframe
-                        src={`https://www.youtube.com/embed/${url}`}
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen
-                        className="w-full h-full"
-                      ></iframe>
+                {testimonialsData.map((url, index) => {
+                  const videoId = url.split("?")[0];
+
+                  return (
+                    <div key={index} className="embla__slide">
+                      <div
+                        className="w-full h-[220px] md:h-[300px] rounded-lg overflow-hidden"
+                        onClick={() => openModal(url)}
+                      >
+                        <img
+                          src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
+                          alt="thumbnail"
+                          className="video-thumb"
+                        />
+
+                        <div className="play-btn">▶</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
             <div className="embla__controls flex justify-center mt-8 gap-2">
@@ -102,6 +106,11 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
+      <TestiModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        videoId={activeVideo}
+      />
     </section>
   );
 };

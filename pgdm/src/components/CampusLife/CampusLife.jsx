@@ -52,7 +52,7 @@ const CampusLife = () => {
     <section>
       <div className="container py-12 bg-gray-100">
         <div className="flex justify-center pb-8">
-          <h2 className="text-4xl lg:text-5xl text-blue-950 font-bold">
+          <h2 className="text-4xl lg:text-5xl text-blue-950 font-bold text-center">
             Life @Lexicon
           </h2>
         </div>
