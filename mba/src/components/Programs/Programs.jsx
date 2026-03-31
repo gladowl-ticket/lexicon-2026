@@ -9,7 +9,7 @@ return(
                 <img src="./programs/bg.png" className="w-full object-contain rounded-lg" alt="" />
             </div>
             <div
-                className="w-full lg:w-7/12 relative lg:absolute lg:py-4 top-0 right-0 flex flex-col justify-center 2xl:justify-between h-full">
+                className="w-full lg:w-7/12 relative lg:absolute lg:py-12 top-0 right-0 flex flex-col justify-center 2xl:justify-between h-full">
                 <div className='bg-red-800 rounded-lg p-4 lg:p-8 text-white shadow-lg mb-6 lg:mb-0'>
                     <h2 className='text-4xl lg:text-5xl font-bold mb-4'>Program Offered</h2>
                     <h3 className='text-2xl font-bold mb-2'>MBA Global, (60 +120 credits)</h3>

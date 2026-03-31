@@ -13,6 +13,7 @@ import Testimonials from "../components/Testimonials/Testimonials";
 import PlacementSection from "../components/PlacementSection/PlacementSection";
 import Programs from "../components/Programs/Programs";
 import CTASection from "../components/CTASection";
+import WhyChoose from "../components/WhyChoose/WhyChoose";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <Hero />
       <PlacementSection />
       <About />
+      <WhyChoose />
       <Awards />
       <Programs/>
       <ProgramsSection />
