@@ -12,7 +12,7 @@ return(
                 className="w-full lg:w-7/12 relative lg:absolute lg:py-4 top-0 right-0 flex flex-col justify-center 2xl:justify-between h-full">
                 <div className='bg-red-800 rounded-lg p-4 lg:p-8 text-white shadow-lg mb-6 lg:mb-0'>
                     <h2 className='text-4xl lg:text-5xl font-bold mb-4'>Program Offered</h2>
-                    <h3 className='text-2xl font-bold mb-2'>Global Master in Business Administration</h3>
+                    <h3 className='text-2xl font-bold mb-2'>MBA Global, (60 +120 credits)</h3>
                     <p className='text-justify text-sm mb-8'>The University of South Wales, in association with the
                         Lexicon
                         Management Institute of Leadership and Excellence, offer MBA Global Program that provides you
@@ -21,17 +21,21 @@ return(
                         South Wales (USW), UK, accredited and recognized by the Privy Council. Educational programs at
                         USW are UK-certified educational programs by Quality Assurance Agency.</p>
                     <h4 className="text-xl font-bold">Eligibility:</h4>
+                    <p className='text-justify text-sm mb-8'>
+                        <ul className='list-disc ps-6'>
+                            <li>Bachelor's Degree in any field with a minimum aggregate of 55%</li>
+                            <li>Valid Passport</li>
+                        </ul>
+                    </p>
+                    <h4 className="text-xl font-bold">IELTS Eligibility::</h4>
                     <p className='text-justify text-sm'>
-                        Applicants must hold a bachelor’s degree from a recognized Indian university with a minimum of
-                        50% marks or an equivalent CGPA. Students currently in their final year of graduation, set to
-                        complete their degree by June 30, 2026, are also eligible to apply. For such candidates,
-                        admission will be provisional, and it is mandatory to submit proof of graduation completion by
-                        October 1, 2026, to ensure continuity in the program. Failure to provide this documentation may
-                        result in withdrawal from the program.
+                        <ul className='list-disc ps-6'>
+                            <li>IELTS overall score of 6 and no band below 5.5 on the scale of 9 or equivalent.</li>
+                        </ul>
                     </p>
-                    <p className='text-justify text-sm mb-2 font-bold'>
+                    {/* <p className='text-justify text-sm mb-2 font-bold'>
                         Applicants must have any of the valid aptitude test score of CAT 2025/ XAT 2026/ CMAT/ MAT/ GMAT.
-                    </p>
+                    </p> */}
                 </div>
                 <div className="border rounded-lg bg-white p-4 lg:p-8 hidden 2xl:block">
                     <h4 className="text-xl font-bold text-center mb-4">Industry Integrated Degrees with Top Global

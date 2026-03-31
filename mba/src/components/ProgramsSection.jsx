@@ -69,7 +69,7 @@ const ProgramsSection = () =>{
 
     const programs = [
         {
-            name: "MARKETING",
+            name: "SALES & MARKETING",
             description: "Global Marketing & Communications",
             icon: "/programs/icons/1.png",
             content: [
@@ -81,35 +81,33 @@ const ProgramsSection = () =>{
         },
         {
             name: "HUMAN RESOURCES",
-            description: "Organizational Behavior & HRM Leadership",
+            description: "Organizational Behavior & HRM",
             icon: "/programs/icons/2.png",
             content: [
-                "Organizational Behavior & HRM Leadership",
+                "Organizational Behavior & HRM",
+                "Leadership",
                 "Learning & Development",
                 "Business Ethics & Governance"
             ]
         },
         {
-            name: "FINANCE",
+            name: "FINANCIAL SERVICES",
             description: "Financial Statement Analysis",
             icon: "/programs/icons/3.png",
             content: [
                 "Financial Statement Analysis",
-                "Financial Management",
+                "Fundamentals of Corporate Finance",
                 "Capital Investment Appraisal Techniques",
                 "Budgetary Management & Control"
             ]
             
         },
         {
-            name: "BUSINESS STRATEGY",
-            description: "Introduction to Business Strategy",
+            name: "OPERATIONS MANAGEMENT & SCM",
+            description: "",
             icon: "/programs/icons/4.png",
             content: [
-                "Introduction to Business Strategy",
-                "Strategic Management",
-                "Strategic Digital Marketing",
-                "International Marketing"
+                ""
             ]
         },
     ];
@@ -119,14 +117,14 @@ return(
         <p className='bg-red-700 py-1 px-2 w-fit rounded-[4px] text-white text-sm mb-4'>Curriculum & Pedagogy</p>
         
         <h2 className='lg:text-5xl text-4xl font-bold mb-2 text-[#243b5e]'>Specializations Offered</h2>
-        <p className='text-md font-light mb-4'>PROGRAM IN ACADEMIC PARTNERSHIP WITH UNIVERSITY OF SOUTH WALES, UK</p>
+        <p className='text-md font-light mb-4'>Students can choose any two modules from any of the four areas:</p>
 
         <Tabs theme={customTheme} className='flex-wrap w-full hidden lg:flex' aria-label="Pills" variant="pills">
             {programs.map((program, index) => (
                 <TabItem key={index} className='p-0' active title={
                 <div className='text-black flex flex-col justify-center items-start'>
                     <img src={program.icon} className='w-14' alt="" />
-                    <h4 className='text-xl mt-2'>{program.name}</h4>
+                    <h4 className='text-xl mt-2 text-start'>{program.name}</h4>
                     <p className='text-sm font-normal text-left'>{program.description}</p>
                     <div className="flex justify-between items-center w-full mt-4">
                         <p>View Details</p>
@@ -137,29 +135,24 @@ return(
                 <div className="bg-white rounded-md overflow-hidden relative">
                    <div className="flex flex-wrap lg:ps-8 pb-0">
                         <div className="w-full lg:w-4/12 mb-4 lg:mb-0 lg:py-8 py-0">
-                            <h4 className='text-lg font-bold mb-3'>Lexicon Phase (India - 60 Credits):</h4>
+                            <h4 className='text-lg font-bold mb-3'>60 Credits of Academics at Lexicon MILE:</h4>
                             <ul className='list-disc ps-6'>
-                                {program.content.map((item, idx) => (
+                                {program.content!="" && program.content.map((item, idx) => (
                                     <li key={idx} className="text-sm mb-1">{item}</li>
                                 ))}
                             </ul>
+                            <p class="mt-4">Business Clinics, Master Clinics & Startup Clinics</p>
                         </div>
                         <div className="lg:w-1/12 justify-center py-8 hidden lg:flex">
                             <div className="w-[1px] bg-gray-300 h-full"></div>
                         </div>
                         <div className="w-full lg:w-5/12 lg:py-8 pb-8">
-                                <h4 className='text-lg font-bold mb-3'>USW Phase (UK - 120 Credits):</h4>
+                                <h4 className='text-lg font-bold mb-3'>120 Credits of Academics at USW, UK:</h4>
                                 <ul className='list-disc ps-6'>
-                                    <li>Global Strategy & Decision-Making</li>
-                                    <li>Project Management & Consultancy Skills</li>
-                                    <li>Global Challenges & Responsible Management</li>
-                                    <li>Capstone Project</li>
-                                    <li>Work Placement</li>
-                                    <li>Responsible Management & ESG:
-                                        <ul>
-                                            <li>A distinctive thread running through both phases, aligned with UN SDGs.</li>
-                                        </ul>
-                                    </li>
+                                    <li>Innovation, Sustainability, and the Future Economy</li>
+                                    <li>Two specialisation modules</li>
+                                    <li>Capstone Consultancy Project</li>
+                                    <li>Internship</li>
                                 </ul>
                         </div>
                         <div className="w-full lg:w-2/12 hidden lg:block">
