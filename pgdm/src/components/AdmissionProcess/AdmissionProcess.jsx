@@ -5,7 +5,7 @@ const AdmissionProcess = () => {
     <section className="">
       <div className="pb-12 container ">
         <div className="flex justify-center ">
-          <h2 className="text-4xl lg:text-5xl text-blue-950 font-bold text-center text-center">
+          <h2 className="text-4xl lg:text-5xl text-blue-950 font-bold text-center">
             Admission Process
           </h2>
         </div>
