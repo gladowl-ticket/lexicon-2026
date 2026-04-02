@@ -1,5 +1,5 @@
 import React from "react";
-import { BsBagDashFill } from "react-icons/bs";
+import { BsBagDashFill, BsBuildingFillDown, BsFillGlobeAmericasFill, BsFillTrophyFill } from "react-icons/bs";
 
 const PlacementSection = () => {
 return (
@@ -73,7 +73,7 @@ return (
       <div className="w-full mb-4 lg:mb-0 lg:w-6/12 px-2">
         <div className="px-4 py-4 bg-blue-950 text-white rounded-md flex gap-6 items-center border-l-4 border-sky-500 shadow-lg">
           <span className="text-2xl border border-sky-800 bg-blue-900 text-sky-500 rounded-lg p-2">
-            <BsBagDashFill />
+            <BsBuildingFillDown />
           </span>
 
           <div>
@@ -87,7 +87,7 @@ return (
       <div className="w-full mb-4 lg:mb-0 lg:w-6/12 px-2">
         <div className="px-4 py-4 bg-blue-950 text-white rounded-md flex gap-6 items-center border-l-4 border-sky-500 shadow-lg">
           <span className="text-2xl border border-sky-800 bg-blue-900 text-sky-500 rounded-lg p-2">
-            <BsBagDashFill />
+            <BsFillGlobeAmericasFill />
           </span>
 
           <div>
@@ -100,7 +100,7 @@ return (
       <div className="w-full mb-4 lg:mb-0 lg:w-6/12 px-2">
         <div className="px-4 py-4 bg-blue-950 text-white rounded-md flex gap-6 items-center border-l-4 border-sky-500 shadow-lg">
           <span className="text-2xl border border-sky-800 bg-blue-900 text-sky-500 rounded-lg p-2">
-            <BsBagDashFill />
+            <BsFillTrophyFill />
           </span>
 
           <div>
