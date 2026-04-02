@@ -76,7 +76,7 @@ const ProgramsSection = () =>{
                 "Global Marketing & Communications",
                 "Future Challenges & Trends in Marketing",
                 "Strategic Digital Marketing",
-                "International Marketing"
+                "International Marketing Communications"
             ]
         },
         {
@@ -107,7 +107,10 @@ const ProgramsSection = () =>{
             description: "",
             icon: "/programs/icons/4.png",
             content: [
-                ""
+                "Operations Management",
+                "Supply Chain Management",
+                "Inventory Management",
+                "Industry 4.0 Technologies"
             ]
         },
     ];
@@ -141,7 +144,6 @@ return(
                                     <li key={idx} className="text-sm mb-1">{item}</li>
                                 ))}
                             </ul>
-                            <p class="mt-4">Business Clinics, Master Clinics & Startup Clinics</p>
                         </div>
                         <div className="lg:w-1/12 justify-center py-8 hidden lg:flex">
                             <div className="w-[1px] bg-gray-300 h-full"></div>
