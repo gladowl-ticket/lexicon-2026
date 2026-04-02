@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Recruiters = () => {
   const [showAll, setShowAll] = useState(false);
 
-  const logos = Array.from({ length: 48 }, (_, i) => i + 1);
+  const logos = Array.from({ length: 30 }, (_, i) => i + 1);
 
   const handleViewMore = () => {
     setShowAll(true);
